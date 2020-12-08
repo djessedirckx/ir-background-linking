@@ -1,5 +1,6 @@
 # background-linking
-Code to replicate my experiments for background linking in TREC News
+This repository contains code following on [Pepijn Broers' code](https://github.com/PepijnBoers/background-linking) to find relevant background articles for a given query article using graphs that are
+constructed per paragraph. **Note**: The commands below are not updated yet!
 
 
 ## Docker
