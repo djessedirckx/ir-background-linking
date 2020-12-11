@@ -9,6 +9,8 @@ import sys
 from pyserini import search
 from pyserini import index
 from pyserini import analysis
+import networkx as nx
+import matplotlib.pyplot as plt
 
 from bglinking.general_utils import utils
 from bglinking.database_utils import db_utils
@@ -136,6 +138,26 @@ topics = utils.read_topics_and_ids_from_file(
 paragraph_graph_builder = ParagraphGraphBuilder()
 default_graph_builder = DefaultGraphBuilder()
 
+def central_node(G): # Compute central node 
+    b = nx.betweenness_centrality(G)
+    L = list(b.keys())
+    return L[np.argmax(np.array([b[i] for i in L])) ]
+
+def ComposeFull(L, doc_id): # Link into a single graph 
+    F = nx.Graph()
+    central = []
+    for g in L:
+        F = nx.compose(F,g)
+        central.append(central_node(g))
+    for i in range(len(central)-1):
+        F.add_edge(central[i], central[i+1], weight = max(1/np.sqrt(i+1),0.2))
+    
+    Gcc = max(nx.connected_components(F), key=len)
+    G0 = F.subgraph(Gcc)
+    G0.name=doc_id
+
+    return G0
+
 for topic_num, topic in tqdm(topics):  # tqdm(topics.items()):
     query_num = str(topic_num)
     query_id = topic  # ['title']
@@ -145,19 +167,27 @@ for topic_num, topic in tqdm(topics):  # tqdm(topics.items()):
     query_graph = Graph(bautista_doc_id, f'query_article_{query_num}', paragraph_graph_builder)
     result, par_ids = query_graph.build(**build_arguments)
 
+    graphs = list()
     for i in range(len(result)):
-        print("Pargraph id", par_ids[i])
-        
-        nodes = ""
+        paragraph_graph = nx.Graph()
+        paragraph_graph.graph['Paragraph_id'] = par_ids[i]
+        paragraph_graph.graph['Doc_id'] = paragraph_graph
+
         for term, node in result[i].nodes.items():
-            nodes += "Term: {}, Weight: {} - ".format(term, node.weight)
+            paragraph_graph.add_node(term, w = node.weight)
 
-        print("\nNodes:", nodes)
-        print("\nEdges:", result[i].edges)
+        for edge in result[i].edges.items():
+            edge_values = edge[0]
+            edge_weight = edge[1]
+            paragraph_graph.add_edge(edge_values[0], edge_values[1], weight = edge_weight)
+        
+        graphs.append(paragraph_graph)
 
-        print("\n==========================================\n")
+    document_graph = ComposeFull(graphs, bautista_doc_id)
+    nx.draw(document_graph)
+    plt.show()
 
-    assert 1 == 2
+    break
 
     # recalculate node weights using TextRank
     if args.textrank:
