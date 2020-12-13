@@ -81,3 +81,18 @@ def GCC_txt(TextFile, Document):
     G0 = document_graph.subgraph(Gcc)
     G0.name=doc_id[0]
     return G0
+
+def NxToPep(NXGraph,docid,fname):
+        PepGraph = Graph(docid,fname)
+        tf = 1 # It is not in the construction of the NX graph object
+        term_positions=[0] # Not in the construction of the NX graph object
+        nodes__ = dict([(i,
+                         Node(i,
+                         'term',
+                         term_positions, # We could add this as a list in the arguments maybe
+                         tf, # We could add this in the arguments maybe
+                         GCC.nodes[i]['w'])) for i in GCC.nodes])
+        PepGraph.__nodes =  nodes__
+        # Transform the edges 
+        PepGraph.__edges = dict([((i[0],i[1]),GCC[i[0]][i[1]]['weight']) for i in GCC.edges])
+        return PepGraph
