@@ -174,6 +174,7 @@ for topic_num, topic in tqdm(topics):  # tqdm(topics.items()):
         paragraph_graph.graph['Doc_id'] = paragraph_graph
 
         for term, node in result[i].nodes.items():
+            
             paragraph_graph.add_node(term, w = node.weight)
 
         for edge in result[i].edges.items():
@@ -184,7 +185,6 @@ for topic_num, topic in tqdm(topics):  # tqdm(topics.items()):
         graphs.append(paragraph_graph)
 
     document_graph = ComposeFull(graphs, bautista_doc_id)
-    nx.draw(document_graph)
     plt.show()
 
     break
