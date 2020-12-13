@@ -12,7 +12,7 @@ from bglinking.graph.graph_comparators.GMCSComparator import GMCSComparator
 class Graph:
     """Graph that represents a single news article."""
 
-    def __init__(self, docid, fname, graph_builder):
+    def __init__(self, docid, fname, graph_builder = None):
         self.__nodes = {}  # {name: NodeObj1, name: NodeObj2, ...]
         self.__edges = defaultdict(float)  # {(A, B): weight}
 

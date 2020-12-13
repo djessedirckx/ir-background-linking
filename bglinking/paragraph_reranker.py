@@ -18,6 +18,7 @@ from bglinking.graph.graph import Graph
 from bglinking.graph.graph_comparators.GMCSComparator import GMCSComparator
 from bglinking.graph.graph_builders.DefaultGraphBuilder import DefaultGraphBuilder
 from bglinking.graph.graph_builders.ParagraphGraphBuilder import ParagraphGraphBuilder
+from bglinking.graph.graph_builders.NxBuilder import convert_to_nx, create_document_graph
 
 parser = argparse.ArgumentParser()
 parser.add_argument('--index', dest='index', default='lucene-index.core18.pos+docvectors+rawdocs_all',
@@ -138,56 +139,24 @@ topics = utils.read_topics_and_ids_from_file(
 paragraph_graph_builder = ParagraphGraphBuilder()
 default_graph_builder = DefaultGraphBuilder()
 
-def central_node(G): # Compute central node 
-    b = nx.betweenness_centrality(G)
-    L = list(b.keys())
-    return L[np.argmax(np.array([b[i] for i in L])) ]
-
-def ComposeFull(L, doc_id): # Link into a single graph 
-    F = nx.Graph()
-    central = []
-    for g in L:
-        F = nx.compose(F,g)
-        central.append(central_node(g))
-    for i in range(len(central)-1):
-        F.add_edge(central[i], central[i+1], weight = max(1/np.sqrt(i+1),0.2))
-    
-    Gcc = max(nx.connected_components(F), key=len)
-    G0 = F.subgraph(Gcc)
-    G0.name=doc_id
-
-    return G0
-
 for topic_num, topic in tqdm(topics):  # tqdm(topics.items()):
     query_num = str(topic_num)
     query_id = topic  # ['title']
 
     bautista_doc_id = "1dd6be099ea95e49f4341b8e335acc30"
     # query_graph = Graph(query_id, f'query_article_{query_num}', paragraph_graph_builder)
-    query_graph = Graph(bautista_doc_id, f'query_article_{query_num}', paragraph_graph_builder)
+    fname = f'query_article_{query_num}'
+    query_graph = Graph(bautista_doc_id, fname, paragraph_graph_builder)
     result, par_ids = query_graph.build(**build_arguments)
 
+    # Convert all query paragraph graphs to nx graphs
     graphs = list()
     for i in range(len(result)):
-        paragraph_graph = nx.Graph()
-        paragraph_graph.graph['Paragraph_id'] = par_ids[i]
-        paragraph_graph.graph['Doc_id'] = paragraph_graph
-
-        for term, node in result[i].nodes.items():
-            
-            paragraph_graph.add_node(term, w = node.weight)
-
-        for edge in result[i].edges.items():
-            edge_values = edge[0]
-            edge_weight = edge[1]
-            paragraph_graph.add_edge(edge_values[0], edge_values[1], weight = edge_weight)
-        
+        paragraph_graph = convert_to_nx(par_ids[i], bautista_doc_id, result[i]) 
         graphs.append(paragraph_graph)
 
-    document_graph = ComposeFull(graphs, bautista_doc_id)
-    plt.show()
-
-    break
+    # Create document graph
+    document_graph = create_document_graph(graphs, bautista_doc_id, fname)
 
     # recalculate node weights using TextRank
     if args.textrank:
@@ -202,12 +171,20 @@ for topic_num, topic in tqdm(topics):  # tqdm(topics.items()):
         f'resources/candidates/{args.candidates}')
     for docid in qid_docids[query_num]:
         # Create graph object.
+        
         fname = f'candidate_article_{query_num}_{docid}'
         candidate_graph = Graph(docid, fname, paragraph_graph_builder)
         candidate_graph.set_graph_comparator(comparator)
 
-        # Build (initialize) graph nodes and edges.
-        candidate_graph.build(**build_arguments)
+        candidate_result, candidate_par_ids = candidate_graph.build(**build_arguments)
+        
+        # Convert all candidate paragraph graphs to nx graphs
+        candidate_graphs = list()
+        for i in range(len(candidate_result)):
+            paragraph_graph = convert_to_nx(candidate_par_ids[i], docid, candidate_result[i]) 
+            candidate_graphs.append(paragraph_graph)
+
+        candidate_document_graph = create_document_graph(graphs, docid, fname)
 
         # recalculate node weights using TextRank
         if args.textrank:
@@ -216,6 +193,7 @@ for topic_num, topic in tqdm(topics):  # tqdm(topics.items()):
         relevance, diversity_type = candidate_graph.compare(
             query_graph, args.novelty, args.node_edge_l)
         ranking[docid] = relevance
+
         addition_types[docid] = diversity_type
 
     # Sort retrieved documents according to new similarity score.
