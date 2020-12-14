@@ -73,8 +73,8 @@ if __name__ == "__main__":
         contents = index_utils.doc_contents(docid).split('\n')
 
         # Obtain top n tfidf terms in doc
-        tfidf_terms = utils.create_top_n_tfidf_vector(
-            index_utils, docid, n=args.n, t=3.5, total_N=total_docs)
+        # tfidf_terms = utils.create_top_n_tfidf_vector(
+        #     index_utils, docid, n=args.n, t=3.5, total_N=total_docs)
 
         # Keep track of entity/term locations
         location_entities = {}
@@ -108,8 +108,6 @@ if __name__ == "__main__":
                 # Obtain top n tfidf terms in doc
                 # Tune threshold t for including more/less tdidf results
                 tfidf_terms = utils.create_top_n_tfidf_vector_paragraph(paragraph_tfs, index_utils, n=args.n, t=2.0, total_N=total_docs)
-                print(tfidf_terms)
-                
 
                 for term in tfidf_terms.keys():
                     term_locations[term].append(analyzed_terms.index(term))

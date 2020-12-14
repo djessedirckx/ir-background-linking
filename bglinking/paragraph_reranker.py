@@ -10,7 +10,6 @@ from pyserini import search
 from pyserini import index
 from pyserini import analysis
 import networkx as nx
-import matplotlib.pyplot as plt
 
 from bglinking.general_utils import utils
 from bglinking.database_utils import db_utils
@@ -141,21 +140,19 @@ paragraph_graph_builder = ParagraphGraphBuilder()
 for topic_num, topic in tqdm(topics):  # tqdm(topics.items()):
     query_num = str(topic_num)
     query_id = topic  # ['title']
-
-    bautista_doc_id = "1dd6be099ea95e49f4341b8e335acc30"
-    # query_graph = Graph(query_id, f'query_article_{query_num}', paragraph_graph_builder)
+    
     fname = f'query_article_{query_num}'
-    query_graph = Graph(bautista_doc_id, fname, paragraph_graph_builder)
+    query_graph = Graph(query_id, fname, paragraph_graph_builder)
     result, par_ids = query_graph.build(**build_arguments)
 
     # Convert all query paragraph graphs to nx graphs
     graphs = list()
     for i in range(len(result)):
-        paragraph_graph = convert_to_nx(par_ids[i], bautista_doc_id, result[i]) 
+        paragraph_graph = convert_to_nx(par_ids[i], query_id, result[i]) 
         graphs.append(paragraph_graph)
 
     # Create document graph
-    document_graph = create_document_graph(graphs, bautista_doc_id, fname)
+    document_graph = create_document_graph(graphs, query_id, fname)
 
     # recalculate node weights using TextRank
     if args.textrank:
@@ -227,7 +224,7 @@ for topic_num, topic in tqdm(topics):  # tqdm(topics.items()):
     utils.write_to_results_file(
         sorted_ranking, query_num, args.run_tag, f'resources/output/{args.output}')
 
-# if args.year != 20:
-#     # Evaluate performance with trec_eval.
-#     os.system(
-#         f"/opt/anserini-tools/eval/trec_eval.9.0.4/trec_eval -c -M1000 -m map -m ndcg_cut -m P.10 resources/topics-and-qrels/{args.qrels} resources/output/{args.output}")
+if args.year != 20:
+    # Evaluate performance with trec_eval.
+    os.system(
+        f"/opt/anserini-tools/eval/trec_eval.9.0.4/trec_eval -c -M1000 -m map -m ndcg_cut -m P.10 resources/topics-and-qrels/{args.qrels} resources/output/{args.output}")

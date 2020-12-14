@@ -6,13 +6,21 @@ constructed per paragraph. **Note**: The commands below are not updated yet!
 ## Docker
 After cloning the repository build the docker image using the dockerfile:
 
+Background-linking on document level:
+
 ```
-docker build . -t blimg
+docker build . -f docker-document -t document-linking
 ```
+
+Background-linking on paragraph level
+```
+docker build . -f docker-paragraph -t paragraph-linking
+```
+
 
 Test the setup with sample resources:
 ```
-docker run --rm -v $PWD/bglinking/resources:/opt/background-linking/bglinking/resources blimg \
+docker run --rm -v $PWD/bglinking/resources:/opt/background-linking/bglinking/resources document-linking \
            --index lucene-index.sample --db sample.db --topics topics.sample.txt \
            --qrels qrels.sample.txt --candidates candidates.sample.txt \
            --nr-terms 100 --output sample.txt --run-tag sample

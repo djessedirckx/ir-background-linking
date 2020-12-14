@@ -1,0 +1,347 @@
+Document id: 1dd6be099ea95e49f4341b8e335acc30
+
+Pargraph id 2
+
+Nodes: Term: bautista, Weight: 1.0 - Term: dominican, Weight: 0.8485911788163207 - Term: rafael, Weight: 0.7484137726854487 - Term: discount, Weight: 0.6341013393837707 - Term: sandi, Weight: 0.5254859093245793 - Term: toni, Weight: 0.48967293345422486 - Term: camp, Weight: 0.42778139416669386 - Term: leagu, Weight: 0.3458223470326631 - Term: rate, Weight: 0.2968682257229673 - 
+
+Edges: defaultdict(<class 'float'>, {('bautista', 'rafael'): 0.5, ('discount', 'rate'): 0.5, ('rate', 'toni'): 0.5, ('camp', 'leagu'): 0.5})
+
+==========================================
+
+Pargraph id 3
+
+Nodes: Term: bautista, Weight: 1.0 - Term: basebal, Weight: 0.822283808456083 - Term: domingo, Weight: 0.9804482922008054 - Term: devout, Weight: 0.8907505899677 - Term: jupit, Weight: 0.8784926365175731 - Term: dominican, Weight: 0.8485911788163207 - Term: santo, Weight: 0.7927975605227289 - Term: rafael, Weight: 0.7484137726854487 - Term: aunt, Weight: 0.7340171096375498 - Term: rural, Weight: 0.5685627413977278 - Term: republ, Weight: 0.5584585876262734 - Term: wast, Weight: 0.5205545427235099 - Term: fla, Weight: 0.49922427684366316 - Term: christian, Weight: 0.4708736531256842 - Term: plai, Weight: 0.18100083137189976 - Term: father, Weight: 0.3617170160434032 - Term: town, Weight: 0.34710953049032883 - Term: leagu, Weight: 0.34582234703266307 - Term: grow, Weight: 0.3119822214668123 - Term: capit, Weight: 0.3111216498534293 - 
+
+Edges: defaultdict(<class 'float'>, {('bautista', 'rafael'): 0.5, ('basebal', 'plai'): 0.5, ('basebal', 'grow'): 0.5, ('domingo', 'santo'): 0.5, ('capit', 'domingo'): 0.5, ('christian', 'devout'): 0.5, ('devout', 'father'): 0.5, ('fla', 'jupit'): 0.5, ('dominican', 'republ'): 0.5, ('dominican', 'town'): 0.5, ('aunt', 'santo'): 0.5, ('fla', 'rafael'): 0.5, ('rural', 'town'): 0.5})
+
+==========================================
+
+Pargraph id 4
+
+Nodes: Term: signe, Weight: 1.0 - Term: bautista, Weight: 0.9957023746078472 - Term: novic, Weight: 0.8685330314472496 - Term: dominican, Weight: 0.8449442518186828 - Term: shortstop, Weight: 0.7476387849478358 - Term: slim, Weight: 0.7127159551356967 - Term: leagu, Weight: 0.3443361321328816 - Term: ancient, Weight: 0.6233149098751489 - Term: mlb, Weight: 0.6211390001246031 - Term: expir, Weight: 0.5953685139996804 - Term: pitcher, Weight: 0.5892770474062842 - Term: old, Weight: 0.32676016151155907 - Term: rapidli, Weight: 0.5772288316212066 - Term: convert, Weight: 0.5681238906005367 - Term: republ, Weight: 0.556058541819625 - Term: basebal, Weight: 0.48356690433169247 - Term: prospect, Weight: 0.4426886379866876 - Term: standard, Weight: 0.36430446195521504 - Term: knew, Weight: 0.361072436459233 - Term: finish, Weight: 0.3559873402359684 - Term: he, Weight: 0.15350016370531255 - Term: improv, Weight: 0.32753161903310013 - Term: join, Weight: 0.30867349949767203 - Term: especi, Weight: 0.30045389269320744 - Term: potenti, Weight: 0.2960207603935613 - Term: chanc, Weight: 0.2953101208935886 - 
+
+Edges: defaultdict(<class 'float'>, {('mlb', 'signe'): 0.5, ('ancient', 'bautista'): 0.5, ('basebal', 'novic'): 0.5, ('he', 'novic'): 0.5, ('dominican', 'republ'): 0.5, ('convert', 'shortstop'): 0.5, ('join', 'shortstop'): 0.5, ('leagu', 'pitcher'): 0.5, ('ancient', 'basebal'): 0.5, ('mlb', 'potenti'): 0.5, ('old', 'prospect'): 0.5, ('convert', 'rapidli'): 0.5, ('improv', 'rapidli'): 0.5, ('especi', 'standard'): 0.5})
+
+==========================================
+
+Pargraph id 5
+
+Nodes: Term: bautista, Weight: 1.0 - Term: basebal, Weight: 0.4856540635670806 - Term: lawyer, Weight: 0.4254998983894283 - Term: readi, Weight: 0.36027493886627754 - Term: colleg, Weight: 0.29700629569136505 - 
+
+Edges: defaultdict(<class 'float'>, {('basebal', 'bautista'): 0.5, ('bautista', 'basebal'): 0.5})
+
+==========================================
+
+Pargraph id 6
+
+Nodes: Term: dominican, Weight: 0.8485911788163208 - Term: bautista, Weight: 1.0 - Term: smilei, Weight: 0.9716024967520104 - Term: deviat, Weight: 0.8291537299840813 - Term: keen, Weight: 0.7323059287482843 - Term: reset, Weight: 0.7315426148480818 - Term: necess, Weight: 0.7265567122243779 - Term: alloc, Weight: 0.708674340393541 - Term: gonzalez, Weight: 0.6745600271184714 - Term: ownership, Weight: 0.6401003142290296 - Term: button, Weight: 0.6157182551690474 - Term: player, Weight: 0.29232019224571626 - Term: birthdai, Weight: 0.5741351980827586 - Term: franchis, Weight: 0.5393440129325455 - Term: scandal, Weight: 0.5082036981692563 - Term: major, Weight: 0.22066348549356185 - Term: agent, Weight: 0.43147093011707877 - Term: fell, Weight: 0.4289856824883297 - Term: older, Weight: 0.41888254045160306 - Term: will, Weight: 0.41259250530325076 - Term: budget, Weight: 0.39304809599224483 - Term: unlik, Weight: 0.38089874373985655 - Term: readi, Weight: 0.36027493886627754 - Term: signific, Weight: 0.35224654231378344 - Term: leagu, Weight: 0.34582234703266307 - Term: market, Weight: 0.31203198868033843 - Term: limit, Weight: 0.31037533671110074 - Term: within, Weight: 0.3065581272557343 - Term: spend, Weight: 0.30634593919738456 - Term: oper, Weight: 0.2962921253191233 - Term: intern, Weight: 0.2847680736711289 - 
+
+Edges: defaultdict(<class 'float'>, {('dominican', 'player'): 0.5, ('gonzalez', 'smilei'): 0.5, ('birthdai', 'deviat'): 0.5, ('button', 'reset'): 0.5, ('necess', 'ownership'): 0.5, ('alloc', 'will'): 0.5, ('alloc', 'signific'): 0.5, ('gonzalez', 'scandal'): 0.5, ('franchis', 'leagu'): 0.5, ('major', 'unlik'): 0.5, ('agent', 'market'): 0.5, ('fell', 'within'): 0.5, ('oper', 'older'): 0.5, ('budget', 'limit'): 0.5, ('limit', 'within'): 0.5, ('intern', 'spend'): 0.5, ('older', 'oper'): 0.5})
+
+==========================================
+
+Pargraph id 7
+
+Nodes: Term: dipuglia, Weight: 1.0 - Term: johnni, Weight: 0.4856172742549571 - Term: older, Weight: 0.302872153795407 - Term: vice, Weight: 0.2833735470087604 - Term: confid, Weight: 0.2744793238788495 - Term: gui, Weight: 0.22140514839747324 - Term: oper, Weight: 0.21423340789347073 - Term: intern, Weight: 0.20590096620393492 - 
+
+Edges: defaultdict(<class 'float'>, {('dipuglia', 'johnni'): 0.5, ('johnni', 'oper'): 0.5, ('gui', 'older'): 0.5, ('intern', 'oper'): 0.5})
+
+==========================================
+
+Pargraph id 8
+
+Nodes: Term: robl, Weight: 1.0 - Term: difo, Weight: 0.997150396509125 - Term: wilmer, Weight: 0.9308843048191663 - Term: dominican, Weight: 0.846412654284427 - Term: infield, Weight: 0.7605807349589714 - Term: victor, Weight: 0.6620407261730391 - Term: republ, Weight: 0.5570248987504504 - Term: sandi, Weight: 0.5241368687344745 - Term: toni, Weight: 0.4884158328329075 - Term: feb, Weight: 0.48140352356212535 - Term: joke, Weight: 0.4531323280351525 - Term: prospect, Weight: 0.4434579728702346 - Term: practic, Weight: 0.3013961213748273 - Term: field, Weight: 0.29708466107109643 - Term: player, Weight: 0.29156974052541496 - 
+
+Edges: defaultdict(<class 'float'>, {('robl', 'victor'): 0.5, ('difo', 'wilmer'): 0.5, ('infield', 'wilmer'): 0.5, ('dominican', 'republ'): 0.5, ('prospect', 'victor'): 0.5, ('republ', 'toni'): 0.5, ('field', 'prospect'): 0.5})
+
+==========================================
+
+Pargraph id 9
+
+Nodes: Term: birthdai, Weight: 0.5567212894340883 - Term: severino, Weight: 1.0 - Term: bautista, Weight: 0.9696693240428014 - Term: difo, Weight: 0.9693948055807297 - Term: wilmer, Weight: 0.9049732245481492 - Term: grapefruit, Weight: 0.9046311058487458 - Term: ineffici, Weight: 0.7878047625553222 - Term: pedro, Weight: 0.7753650001526721 - Term: shortstop, Weight: 0.7280914595730198 - Term: sign, Weight: 0.40476855318827415 - Term: bonu, Weight: 0.6820461055225168 - Term: leagu, Weight: 0.3353333214860575 - Term: catcher, Weight: 0.6641553058523076 - Term: cardin, Weight: 0.5878472951365653 - Term: bargain, Weight: 0.5767807651541139 - Term: pitcher, Weight: 0.573870155183103 - Term: util, Weight: 0.5579365186241586 - Term: loui, Weight: 0.508107652447124 - Term: bench, Weight: 0.504196796808244 - Term: in, Weight: 0.4895835574370333 - Term: surfac, Weight: 0.48382970410774384 - Term: sixth, Weight: 0.47752957844561633 - Term: tool, Weight: 0.45144479704929813 - Term: doubl, Weight: 0.36737393344328884 - Term: focus, Weight: 0.34306091869825395 - Term: st, Weight: 0.33582746688681697 - Term: celebr, Weight: 0.3351920837004998 - Term: loss, Weight: 0.3265282236776428 - Term: middl, Weight: 0.3044867054941984 - Term: market, Weight: 0.3025678475433948 - Term: field, Weight: 0.28881533645100155 - Term: player, Weight: 0.28345392321896545 - 
+
+Edges: defaultdict(<class 'float'>, {('pedro', 'severino'): 0.5, ('bautista', 'celebr'): 0.5, ('difo', 'wilmer'): 0.5, ('ineffici', 'market'): 0.5, ('cardin', 'pedro'): 0.5, ('catcher', 'util'): 0.5, ('cardin', 'loui'): 0.5, ('focus', 'pitcher'): 0.5, ('middl', 'pitcher'): 0.5, ('loui', 'st'): 0.5, ('bench', 'sixth'): 0.5, ('in', 'sixth'): 0.5, ('player', 'tool'): 0.5, ('loss', 'st'): 0.5, ('field', 'middl'): 0.5, ('field', 'player'): 0.5})
+
+==========================================
+
+Pargraph id 10
+
+Nodes: Term: suero, Weight: 1.0 - Term: bautista, Weight: 0.764292541823921 - Term: domingo, Weight: 0.749349317373076 - Term: santo, Weight: 0.6059292626837204 - Term: wander, Weight: 0.5174337153154934 - Term: hander, Weight: 0.5166459113543022 - Term: exposur, Weight: 0.48075556388432533 - Term: dean, Weight: 0.44724505715892376 - Term: rural, Weight: 0.434548262809246 - Term: roger, Weight: 0.4078909574527768 - Term: stadium, Weight: 0.38693887831828017 - Term: grew, Weight: 0.34258149559767725 - Term: camp, Weight: 0.32695012909264304 - Term: trip, Weight: 0.3029743872920088 - Term: old, Weight: 0.14813731510530165 - Term: gain, Weight: 0.2865080397722361 - Term: leagu, Weight: 0.2643094406331082 - 
+
+Edges: defaultdict(<class 'float'>, {('suero', 'wander'): 0.5, ('domingo', 'santo'): 0.5, ('hander', 'wander'): 0.5, ('exposur', 'gain'): 0.5, ('dean', 'roger'): 0.5, ('dean', 'stadium'): 0.5, ('roger', 'trip'): 0.5, ('camp', 'leagu'): 0.5})
+
+==========================================
+
+Pargraph id 12
+
+Nodes: Term: marmolejo, Weight: 1.0 - Term: enni, Weight: 0.7923118011192514 - Term: reynaldo, Weight: 0.7698889291847446 - Term: eaton, Weight: 0.7023632330975113 - Term: romero, Weight: 0.6762992155152636 - Term: undraft, Weight: 0.672885605369683 - Term: dominican, Weight: 0.654610479743371 - Term: rosa, Weight: 0.6057376731239628 - Term: sign, Weight: 0.322008657681326 - Term: lopez, Weight: 0.5588776985269975 - Term: baseman, Weight: 0.5348332229494521 - Term: catcher, Weight: 0.5283606071787782 - Term: hander, Weight: 0.5214561765348866 - Term: pitcher, Weight: 0.45653536298293274 - Term: player, Weight: 0.22549829182947717 - Term: jeffrei, Weight: 0.43779523580035434 - Term: jose, Weight: 0.4377442225954763 - Term: republ, Weight: 0.4307997220437395 - Term: flip, Weight: 0.4251041282910209 - Term: acquir, Weight: 0.4236606029928657 - Term: packag, Weight: 0.3962071171899618 - Term: prospect, Weight: 0.34296774144052167 - Term: adam, Weight: 0.3345267374029604 - Term: minor, Weight: 0.28401033386663976 - Term: trade, Weight: 0.2804990493876329 - Term: goe, Weight: 0.2685301183242411 - Term: leagu, Weight: 0.26677031077886126 - Term: list, Weight: 0.22534305624306358 - 
+
+Edges: defaultdict(<class 'float'>, {('jose', 'marmolejo'): 0.5, ('enni', 'romero'): 0.5, ('enni', 'flip'): 0.5, ('lopez', 'reynaldo'): 0.5, ('hander', 'reynaldo'): 0.5, ('eaton', 'jeffrei'): 0.5, ('adam', 'eaton'): 0.5, ('dominican', 'republ'): 0.5, ('jeffrei', 'rosa'): 0.5, ('baseman', 'jose'): 0.5, ('leagu', 'player'): 0.5, ('adam', 'acquir'): 0.5, ('acquir', 'trade'): 0.5, ('packag', 'trade'): 0.5, ('acquir', 'adam'): 0.5, ('leagu', 'minor'): 0.5, ('goe', 'list'): 0.5})
+
+==========================================
+
+Pargraph id 13
+
+Nodes: Term: dipuglia, Weight: 1.0 - Term: rounder, Weight: 0.6618692800232931 - Term: bargain, Weight: 0.430084904183394 - Term: hei, Weight: 0.3933402396810042 - Term: sixth, Weight: 0.3560768239829271 - Term: grand, Weight: 0.34329530956917653 - Term: senior, Weight: 0.22524545707899557 - 
+
+Edges: defaultdict(<class 'float'>, {('rounder', 'sixth'): 0.5, ('bargain', 'grand'): 0.5})
+
+==========================================
+
+Pargraph id 14
+
+Nodes: Term: robl, Weight: 1.0 - Term: prospect, Weight: 0.4434579728702346 - Term: indirectli, Weight: 0.8140766382588768 - Term: victor, Weight: 0.6620407261730391 - Term: discount, Weight: 0.6324734585407467 - Term: bargain, Weight: 0.5932950799418789 - Term: premier, Weight: 0.5516592065844292 - Term: directli, Weight: 0.4323394706373284 - Term: none, Weight: 0.4167708475417849 - Term: rel, Weight: 0.3731921321997819 - Term: impact, Weight: 0.3651432135436081 - Term: leagu, Weight: 0.34493454324033684 - Term: player, Weight: 0.291569740525415 - 
+
+Edges: defaultdict(<class 'float'>, {('robl', 'victor'): 0.5, ('premier', 'prospect'): 0.5, ('directli', 'indirectli'): 0.5, ('discount', 'none'): 0.5, ('discount', 'player'): 0.5, ('bargain', 'rel'): 0.5, ('prospect', 'premier'): 0.5, ('player', 'premier'): 0.5, ('premier', 'player'): 0.5})
+
+==========================================
+
+Pargraph id 15
+
+Nodes: Term: bautista, Weight: 0.7230479300208511 - Term: difo, Weight: 0.722843231366545 - Term: dipuglia, Weight: 1.0 - Term: athlet, Weight: 0.329774259460318 - Term: gui, Weight: 0.22140514839747327 - Term: premium, Weight: 0.4378096653345149 - Term: somewher, Weight: 0.3880855122669069 - Term: stand, Weight: 0.1907283706460873 - Term: basebal, Weight: 0.35115116536839247 - Term: divis, Weight: 0.29343047338926054 - Term: footbal, Weight: 0.29107040166255044 - Term: born, Weight: 0.2843204916798942 - Term: you, Weight: 0.14287525489593392 - Term: plai, Weight: 0.13087227645550528 - Term: wide, Weight: 0.24396446486472698 - Term: bit, Weight: 0.23013979942998802 - Term: field, Weight: 0.21535932508261407 - Term: colleg, Weight: 0.2147497873028023 - 
+
+Edges: defaultdict(<class 'float'>, {('bautista', 'difo'): 0.5, ('dipuglia', 'somewher'): 0.5, ('footbal', 'somewher'): 0.5, ('divis', 'plai'): 0.5, ('colleg', 'footbal'): 0.5})
+
+==========================================
+
+Pargraph id 16
+
+Nodes: Term: severino, Weight: 1.0 - Term: enni, Weight: 0.9959449653382204 - Term: romero, Weight: 0.8501158228403534 - Term: pedro, Weight: 0.7753650001526722 - Term: catcher, Weight: 0.6641553058523076 - Term: pitcher, Weight: 0.573870155183103 - Term: newton, Weight: 0.5610365323787709 - Term: shake, Weight: 0.5047565757625586 - Term: feb, Weight: 0.46800370010695186 - Term: jonathan, Weight: 0.4297521518222426 - Term: session, Weight: 0.41891345929792856 - Term: throw, Weight: 0.37741073982056755 - Term: spring, Weight: 0.3427903577859953 - 
+
+Edges: defaultdict(<class 'float'>, {('pedro', 'severino'): 0.5, ('enni', 'romero'): 0.5, ('enni', 'pitcher'): 0.5, ('romero', 'shake'): 0.5, ('catcher', 'pedro'): 0.5, ('jonathan', 'newton'): 0.5, ('feb', 'spring'): 0.5, ('session', 'throw'): 0.5, ('spring', 'session'): 0.5, ('session', 'spring'): 0.5})
+
+==========================================
+
+Pargraph id 17
+
+Nodes: Term: difo, Weight: 1.0 - Term: severino, Weight: 0.6092627129313163 - Term: mishap, Weight: 0.531580431225783 - Term: eccentr, Weight: 0.4961173812115771 - Term: shortstop, Weight: 0.4435989779215799 - Term: dusti, Weight: 0.4312885517401567 - Term: portfolio, Weight: 0.42432070626029106 - Term: outfield, Weight: 0.4130851365483593 - Term: catcher, Weight: 0.4046450634513051 - Term: backup, Weight: 0.34636083658984024 - Term: baker, Weight: 0.3371667159194965 - Term: roster, Weight: 0.3087028956607556 - Term: emphas, Weight: 0.30620652157131817 - Term: elimin, Weight: 0.2808588598680298 - Term: playoff, Weight: 0.27371582236172015 - Term: mental, Weight: 0.27292411308553793 - Term: base, Weight: 0.1279198078478968 - Term: octob, Weight: 0.2532007444735091 - Term: turn, Weight: 0.11582900310433007 - Term: add, Weight: 0.21985634520845215 - Term: valu, Weight: 0.21313107042753554 - Term: spring, Weight: 0.20884938335139205 - Term: juli, Weight: 0.19781282934557387 - Term: natur, Weight: 0.1960567284249069 - Term: spent, Weight: 0.19582750372369986 - Term: futur, Weight: 0.1737339245541448 - 
+
+Edges: defaultdict(<class 'float'>, {('difo', 'severino'): 0.5, ('mental', 'mishap'): 0.5, ('eccentr', 'futur'): 0.5, ('natur', 'shortstop'): 0.5, ('baker', 'dusti'): 0.5, ('outfield', 'spring'): 0.5, ('backup', 'catcher'): 0.5, ('catcher', 'futur'): 0.5, ('baker', 'emphas'): 0.5, ('playoff', 'roster'): 0.5, ('elimin', 'mental'): 0.5, ('mishap', 'mental'): 0.5, ('add', 'spring'): 0.5})
+
+==========================================
+
+Pargraph id 18
+
+Nodes: Term: ballplay, Weight: 1.0 - Term: difo, Weight: 0.9871366031869784 - Term: mistak, Weight: 0.43712035841570906 - Term: baker, Weight: 0.5635295101240685 - Term: round, Weight: 0.3507457019836159 - Term: coupl, Weight: 0.3296892373124472 - Term: process, Weight: 0.2910787497189067 - 
+
+Edges: defaultdict(<class 'float'>, {('baker', 'mistak'): 0.5})
+
+==========================================
+
+Pargraph id 19
+
+Nodes: Term: bautista, Weight: 1.0 - Term: difo, Weight: 0.999716894764777 - Term: harrisburg, Weight: 0.804709851051822 - Term: aa, Weight: 0.7975775140527438 - Term: laud, Weight: 0.75415305214291 - Term: fielder, Weight: 0.7445586065866845 - Term: aaa, Weight: 0.7157921617053457 - Term: makeup, Weight: 0.7016585860365984 - Term: leagu, Weight: 0.34582234703266307 - Term: syracus, Weight: 0.6792111238490358 - Term: class, Weight: 0.32662959585167134 - Term: stolen, Weight: 0.5853402216198673 - Term: bat, Weight: 0.5559868030158372 - Term: elit, Weight: 0.5121510965912682 - Term: debut, Weight: 0.5072338620725518 - Term: season, Weight: 0.24752230263239688 - Term: suppli, Weight: 0.4712409565548704 - Term: speed, Weight: 0.4527885169719457 - Term: foot, Weight: 0.39067434930954403 - Term: unlik, Weight: 0.38089874373985655 - Term: minor, Weight: 0.3681711055197162 - Term: summer, Weight: 0.337364571101015 - Term: led, Weight: 0.2902519842459761 - 
+
+Edges: defaultdict(<class 'float'>, {('bautista', 'difo'): 0.5, ('bautista', 'laud'): 0.5, ('difo', 'unlik'): 0.5, ('aa', 'harrisburg'): 0.5, ('aa', 'class'): 0.5, ('fielder', 'led'): 0.5, ('aaa', 'syracus'): 0.5, ('leagu', 'stolen'): 0.5, ('leagu', 'minor'): 0.5, ('elit', 'suppli'): 0.5, ('elit', 'speed'): 0.5, ('led', 'minor'): 0.5})
+
+==========================================
+
+Pargraph id 20
+
+Nodes: Term: dipuglia, Weight: 1.0 - Term: makeup, Weight: 0.5073327882151196 - Term: unbeliev, Weight: 0.4924833209975186 - Term: latin, Weight: 0.4667530979199475 - Term: leap, Weight: 0.4648589496940868 - Term: whenev, Weight: 0.4173566793651639 - Term: bound, Weight: 0.3894090962065908 - Term: rout, Weight: 0.3250268577392507 - Term: ball, Weight: 0.27693872345532006 - Term: rememb, Weight: 0.25652395624014424 - Term: he, Weight: 0.11146701911673167 - Term: improv, Weight: 0.23784322022083346 - Term: drop, Weight: 0.23503335138224488 - Term: field, Weight: 0.21535932508261407 - 
+
+Edges: defaultdict(<class 'float'>, {('bound', 'dipuglia'): 0.5, ('bound', 'leap'): 0.5, ('improv', 'leap'): 0.5, ('rememb', 'whenev'): 0.5, ('ball', 'drop'): 0.5, ('he', 'improv'): 0.5})
+
+==========================================
+
+Pargraph id 21
+
+Nodes: Term: yasel, Weight: 1.0 - Term: antuna, Weight: 0.9843995630291905 - Term: bargain, Weight: 0.3606398573655941 - Term: million, Weight: 0.28565747689000004 - Term: dominican, Weight: 0.5144996970874476 - Term: stipul, Weight: 0.5014945894237098 - Term: clearanc, Weight: 0.46858603691336653 - Term: shortstop, Weight: 0.45524888483297626 - Term: culmin, Weight: 0.430787687154183 - Term: cheaper, Weight: 0.40233242091781884 - Term: aisl, Weight: 0.3999576142503059 - Term: spend, Weight: 0.18573713332829736 - Term: player, Weight: 0.17723334170495725 - Term: deadlin, Weight: 0.3322870632632679 - Term: hunt, Weight: 0.31924091588611614 - Term: teenag, Weight: 0.29656525953984414 - Term: agent, Weight: 0.2616002480215821 - Term: agreement, Weight: 0.25564892160371067 - Term: invest, Weight: 0.23787463184178445 - Term: collect, Weight: 0.2146146107717442 - Term: juli, Weight: 0.2030078391685299 - Term: spent, Weight: 0.20097037443039373 - Term: limit, Weight: 0.18818015165326232 - Term: rule, Weight: 0.17434325975149387 - Term: intern, Weight: 0.1726545023109235 - 
+
+Edges: defaultdict(<class 'float'>, {('antuna', 'yasel'): 0.5, ('shortstop', 'yasel'): 0.5, ('bargain', 'hunt'): 0.5, ('dominican', 'shortstop'): 0.5, ('rule', 'stipul'): 0.5, ('aisl', 'clearanc'): 0.5, ('clearanc', 'limit'): 0.5, ('culmin', 'spend'): 0.5, ('deadlin', 'invest'): 0.5, ('agreement', 'rule'): 0.5, ('intern', 'spent'): 0.5})
+
+==========================================
+
+Document id: 557d39aa-86dc-11e4-b9b7-b8632ae73d25
+
+Pargraph id 2
+
+Nodes: Term: chica, Weight: 1.0 - Term: scrawni, Weight: 0.9525565369162392 - Term: difo, Weight: 0.8528554524516948 - Term: boca, Weight: 0.8026796432414747 - Term: wilmer, Weight: 0.7961785481368621 - Term: teeter, Weight: 0.7344665190525786 - Term: dominican, Weight: 0.7239305622880321 - Term: infield, Weight: 0.6505191484758539 - Term: mother, Weight: 0.2991771719548115 - Term: uncl, Weight: 0.5512351359851576 - Term: patrol, Weight: 0.5224735544027516 - Term: aspir, Weight: 0.5098615334204983 - Term: republ, Weight: 0.4764193282315237 - Term: basebal, Weight: 0.4143100094511876 - Term: dream, Weight: 0.3816184799034345 - Term: profession, Weight: 0.3432057763167789 - Term: financi, Weight: 0.30171935349776624 - Term: kid, Weight: 0.28875621538827023 - Term: singl, Weight: 0.2741456417957711 - Term: middl, Weight: 0.26788171907339 - Term: short, Weight: 0.26547932142347924 - Term: futur, Weight: 0.2508734904727984 - Term: near, Weight: 0.25079385985839375 - Term: began, Weight: 0.25058609334226606 - Term: player, Weight: 0.2493774698857581 - Term: learn, Weight: 0.24301242321152788 - 
+
+Edges: defaultdict(<class 'float'>, {('boca', 'chica'): 0.5, ('chica', 'dominican'): 0.5, ('short', 'scrawni'): 0.5, ('difo', 'wilmer'): 0.5, ('dominican', 'republ'): 0.5, ('infield', 'middl'): 0.5, ('mother', 'uncl'): 0.5, ('middl', 'patrol'): 0.5, ('aspir', 'began'): 0.5, ('aspir', 'player'): 0.5, ('basebal', 'profession'): 0.5, ('basebal', 'player'): 0.5, ('scrawni', 'short'): 0.5, ('futur', 'near'): 0.5})
+
+==========================================
+
+Pargraph id 3
+
+Nodes: Term: sandlot, Weight: 1.0 - Term: difo, Weight: 0.7752420522606626 - Term: prospect, Weight: 0.3447697259940144 - Term: dominican, Weight: 0.6580498643574969 - Term: scour, Weight: 0.6348384815568596 - Term: caribbean, Weight: 0.5633218922132026 - Term: dirt, Weight: 0.5435006232739044 - Term: oral, Weight: 0.5400202960198064 - Term: leagu, Weight: 0.2681719469133119 - Term: crazi, Weight: 0.3940857097357251 - Term: sign, Weight: 0.19118274239083188 - Term: basebal, Weight: 0.37660607207909624 - Term: struck, Weight: 0.3570374334798335 - Term: window, Weight: 0.355686638237509 - Term: island, Weight: 0.3521854030576264 - Term: dream, Weight: 0.3468896079522802 - Term: talent, Weight: 0.34682396670186755 - Term: environ, Weight: 0.3458310368799757 - Term: plenti, Weight: 0.33553996519000506 - Term: agent, Weight: 0.3345891332900642 - Term: neighborhood, Weight: 0.3304549470961409 - Term: team, Weight: 0.16452268579210444 - Term: agreement, Weight: 0.32697733183673533 - Term: older, Weight: 0.3248273206308748 - Term: boi, Weight: 0.3030144980230157 - Term: competit, Weight: 0.2981689774795484 - Term: mostli, Weight: 0.296088219827371 - Term: although, Weight: 0.23726491687751827 - Term: field, Weight: 0.23097069724909103 - Term: player, Weight: 0.22668308092074563 - Term: earlier, Weight: 0.21894356780013377 - 
+
+Edges: defaultdict(<class 'float'>, {('scour', 'sandlot'): 0.5, ('island', 'prospect'): 0.5, ('agent', 'prospect'): 0.5, ('boi', 'dominican'): 0.5, ('sandlot', 'scour'): 0.5, ('scour', 'team'): 0.5, ('crazi', 'caribbean'): 0.5, ('caribbean', 'island'): 0.5, ('dirt', 'neighborhood'): 0.5, ('dirt', 'mostli'): 0.5, ('agreement', 'oral'): 0.5, ('leagu', 'player'): 0.5, ('caribbean', 'crazi'): 0.5, ('basebal', 'crazi'): 0.5, ('basebal', 'field'): 0.5, ('earlier', 'struck'): 0.5, ('boi', 'dream'): 0.5, ('although', 'talent'): 0.5, ('competit', 'environ'): 0.5, ('field', 'neighborhood'): 0.5, ('competit', 'earlier'): 0.5})
+
+==========================================
+
+Pargraph id 4
+
+Nodes: Term: difo, Weight: 1.0 - Term: talent, Weight: 0.4473750691032606 - Term: lower, Weight: 0.3630033897951398 - 
+
+Edges: defaultdict(<class 'float'>, {})
+
+==========================================
+
+Pargraph id 5
+
+Nodes: Term: esmailyn, Weight: 1.0 - Term: difo, Weight: 0.6646858109412216 - Term: smilei, Weight: 0.6459932775449175 - Term: poach, Weight: 0.5961397940991251 - Term: prospect, Weight: 0.2956025724379329 - Term: dominican, Weight: 0.5642062455909658 - Term: speedi, Weight: 0.537325225924232 - Term: homegrown, Weight: 0.5317363627566778 - Term: infield, Weight: 0.5069919486291333 - Term: gonzalez, Weight: 0.44849745063003116 - Term: barrel, Weight: 0.43036886076652864 - Term: chest, Weight: 0.4138097286682033 - Term: himself, Weight: 0.19746789514522928 - Term: roster, Weight: 0.3474176057229496 - Term: hard, Weight: 0.16365011958055375 - Term: draft, Weight: 0.2971353347659581 - Term: controversi, Weight: 0.26502982240498674 - Term: valu, Weight: 0.23986003122716062 - Term: middl, Weight: 0.20877767406747014 - Term: push, Weight: 0.2022808622757319 - Term: protect, Weight: 0.19868520298140568 - Term: chanc, Weight: 0.19719148835648864 - Term: him, Weight: 0.09754536549701613 - Term: rule, Weight: 0.19118681038166296 - Term: learn, Weight: 0.189395411762692 - 
+
+Edges: defaultdict(<class 'float'>, {('esmailyn', 'smilei'): 0.5, ('barrel', 'difo'): 0.5, ('gonzalez', 'smilei'): 0.5, ('poach', 'rule'): 0.5, ('infield', 'prospect'): 0.5, ('dominican', 'homegrown'): 0.5, ('chest', 'speedi'): 0.5, ('middl', 'speedi'): 0.5, ('infield', 'middl'): 0.5, ('controversi', 'gonzalez'): 0.5, ('barrel', 'chest'): 0.5, ('hard', 'himself'): 0.5, ('himself', 'push'): 0.5, ('protect', 'roster'): 0.5, ('himself', 'hard'): 0.5, ('hard', 'learn'): 0.5})
+
+==========================================
+
+Pargraph id 6
+
+Nodes: Term: infield, Weight: 1.0 - Term: rizzo, Weight: 0.9930842498852898 - Term: ceil, Weight: 0.7744776608600419 - Term: steal, Weight: 0.7181555345114836 - Term: athlet, Weight: 0.5981195261230582 - Term: talent, Weight: 0.5865258046125477 - Term: excit, Weight: 0.5706743763991611 - Term: extrem, Weight: 0.5161639144989458 - Term: mike, Weight: 0.4723641307312545 - Term: middl, Weight: 0.4117968236615762 - Term: futur, Weight: 0.3856512003691008 - Term: near, Weight: 0.3855287894998878 - 
+
+Edges: defaultdict(<class 'float'>, {('infield', 'middl'): 0.5, ('mike', 'rizzo'): 0.5, ('athlet', 'excit'): 0.5, ('athlet', 'middl'): 0.5, ('excit', 'talent'): 0.5, ('futur', 'near'): 0.5})
+
+==========================================
+
+Pargraph id 8
+
+Nodes: Term: carmen, Weight: 0.5123524636029713 - Term: cibao, Weight: 1.0 - Term: belleza, Weight: 0.8857698702759028 - Term: plantain, Weight: 0.701862663239686 - Term: centro, Weight: 0.6142137332371184 - Term: difo, Weight: 0.6061270166007869 - Term: santiago, Weight: 0.553687761606832 - Term: stylist, Weight: 0.5140308429513989 - Term: salon, Weight: 0.4833248892145832 - Term: santo, Weight: 0.4806721009162186 - Term: bean, Weight: 0.41534570056881187 - Term: bedroom, Weight: 0.36865316385366487 - Term: rice, Weight: 0.3576372452070443 - Term: lunch, Weight: 0.3232068639302766 - Term: her, Weight: 0.17484249675021213 - Term: feed, Weight: 0.30573866860899396 - Term: hair, Weight: 0.3056464973258178 - Term: dinner, Weight: 0.28137694457702 - Term: de, Weight: 0.2598833359219036 - Term: brother, Weight: 0.2536746756064284 - Term: simpl, Weight: 0.2491567406342444 - Term: largest, Weight: 0.24497114785858928 - Term: boi, Weight: 0.23691345578828468 - Term: usual, Weight: 0.2216061141148361 - Term: earn, Weight: 0.22160036444243872 - Term: mother, Weight: 0.2126261445016692 - Term: parent, Weight: 0.20718576363548108 - 
+
+Edges: defaultdict(<class 'float'>, {('carmen', 'santo'): 0.5, ('carmen', 'mother'): 0.5, ('belleza', 'cibao'): 0.5, ('cibao', 'salon'): 0.5, ('belleza', 'de'): 0.5, ('bean', 'plantain'): 0.5, ('centro', 'stylist'): 0.5, ('centro', 'de'): 0.5, ('difo', 'mother'): 0.5, ('salon', 'santiago'): 0.5, ('hair', 'stylist'): 0.5, ('santiago', 'salon'): 0.5, ('bean', 'rice'): 0.5, ('dinner', 'lunch'): 0.5, ('brother', 'lunch'): 0.5, ('feed', 'her'): 0.5, ('dinner', 'usual'): 0.5, ('brother', 'parent'): 0.5})
+
+==========================================
+
+Pargraph id 9
+
+Nodes: Term: cleat, Weight: 1.0 - Term: santo, Weight: 0.8356150922819899 - Term: nutrit, Weight: 0.729041311575993 - Term: glove, Weight: 0.7031640673224115 - Term: equip, Weight: 0.514815869302418 - Term: afford, Weight: 0.42832414752042375 - Term: bui, Weight: 0.3847080584163676 - Term: food, Weight: 0.37833623922537685 - Term: practic, Weight: 0.3184916087767997 - Term: noth, Weight: 0.3063214013415928 - 
+
+Edges: defaultdict(<class 'float'>, {('afford', 'cleat'): 0.5, ('food', 'santo'): 0.5, ('bui', 'equip'): 0.5})
+
+==========================================
+
+Pargraph id 10
+
+Nodes: Term: difo, Weight: 1.0 - Term: basebal, Weight: 0.4857915937104874 - Term: glove, Weight: 0.6673223459234986 - Term: client, Weight: 0.518471382902712 - Term: gift, Weight: 0.4808419137282676 - Term: mother, Weight: 0.350794699259728 - Term: leagu, Weight: 0.3459202788745823 - 
+
+Edges: defaultdict(<class 'float'>, {('basebal', 'leagu'): 0.5, ('gift', 'glove'): 0.5, ('client', 'mother'): 0.5, ('glove', 'gift'): 0.5})
+
+==========================================
+
+Pargraph id 11
+
+Nodes: Term: valdez, Weight: 1.0 - Term: difo, Weight: 0.9743153836615885 - Term: trainer, Weight: 0.6563783406459748 - Term: pound, Weight: 0.45807985769904197 - Term: introduc, Weight: 0.42643531773192456 - Term: agent, Weight: 0.42050781277909394 - Term: essenti, Weight: 0.4122917699087042 - Term: foot, Weight: 0.3807478202354783 - Term: roll, Weight: 0.37429547726328943 - Term: william, Weight: 0.3379603942820612 - Term: mayb, Weight: 0.3263485746325048 - Term: saw, Weight: 0.3193304150293427 - Term: although, Weight: 0.2981918458149206 - Term: potenti, Weight: 0.289744469574166 - Term: player, Weight: 0.2848927148789735 - Term: noth, Weight: 0.28324085597287 - 
+
+Edges: defaultdict(<class 'float'>, {('valdez', 'william'): 0.5, ('although', 'difo'): 0.5, ('agent', 'trainer'): 0.5, ('essenti', 'trainer'): 0.5, ('introduc', 'player'): 0.5, ('agent', 'roll'): 0.5, ('foot', 'noth'): 0.5, ('mayb', 'noth'): 0.5, ('potenti', 'saw'): 0.5})
+
+==========================================
+
+Pargraph id 12
+
+Nodes: Term: difo, Weight: 1.0 - Term: tryout, Weight: 0.8815249245319453 - Term: valdez, Weight: 0.6061857577677141 - Term: shepherd, Weight: 0.4128074145835713 - Term: countless, Weight: 0.38821977404938657 - Term: bless, Weight: 0.35084395630375365 - Term: bu, Weight: 0.30345662882104385 - Term: went, Weight: 0.14836205406314837 - Term: basebal, Weight: 0.2869163409348914 - Term: chase, Weight: 0.28374410265858896 - Term: island, Weight: 0.26831151876582504 - Term: dream, Weight: 0.2642769312575075 - Term: depend, Weight: 0.24044051461088886 - Term: group, Weight: 0.11615567897634121 - Term: car, Weight: 0.20847284361868507 - Term: mother, Weight: 0.20718500038709908 - Term: leagu, Weight: 0.20430608918486465 - Term: sometim, Weight: 0.19529654227295987 - Term: train, Weight: 0.18801442404737492 - Term: success, Weight: 0.18315508492576338 - Term: three, Weight: 0.09007095110352623 - Term: miss, Weight: 0.17992730259059717 - Term: futur, Weight: 0.17373392455414477 - Term: player, Weight: 0.17269790625141188 - 
+
+Edges: defaultdict(<class 'float'>, {('difo', 'train'): 0.5, ('group', 'tryout'): 0.5, ('valdez', 'went'): 0.5, ('countless', 'went'): 0.5, ('countless', 'group'): 0.5, ('bless', 'mother'): 0.5, ('bu', 'car'): 0.5, ('basebal', 'success'): 0.5, ('chase', 'dream'): 0.5, ('depend', 'futur'): 0.5, ('success', 'sometim'): 0.5, ('sometim', 'success'): 0.5})
+
+==========================================
+
+Pargraph id 16
+
+Nodes: Term: difo, Weight: 0.7640761666040886 - Term: ulloa, Weight: 1.0 - Term: modesto, Weight: 0.910831969082853 - Term: tryout, Weight: 0.6735521851023273 - Term: dominican, Weight: 0.6485719090268832 - Term: infield, Weight: 0.5828023680227792 - Term: bullpen, Weight: 0.5250544888156623 - Term: catcher, Weight: 0.5234866508505717 - Term: scout, Weight: 0.4756866266432742 - Term: pitcher, Weight: 0.45232397138555 - Term: academi, Weight: 0.4142477962018083 - Term: volunt, Weight: 0.36956937934701833 - Term: session, Weight: 0.33018723462982624 - Term: catch, Weight: 0.3279615173541473 - Term: fell, Weight: 0.32787055767507495 - Term: gone, Weight: 0.28518146515058895 - 
+
+Edges: defaultdict(<class 'float'>, {('modesto', 'ulloa'): 0.5, ('modesto', 'scout'): 0.5, ('dominican', 'scout'): 0.5, ('infield', 'volunt'): 0.5, ('bullpen', 'session'): 0.5, ('bullpen', 'catch'): 0.5, ('pitcher', 'session'): 0.5, ('academi', 'fell'): 0.5, ('catch', 'volunt'): 0.5})
+
+==========================================
+
+Pargraph id 17
+
+Nodes: Term: difo, Weight: 1.0 - Term: valdez, Weight: 0.6061857577677142 - Term: bought, Weight: 0.30003320795083493 - Term: mom, Weight: 0.2954407138093855 - Term: polo, Weight: 0.5185752463613493 - Term: paycheck, Weight: 0.4379766149296816 - Term: tenni, Weight: 0.38754418516442146 - Term: himself, Weight: 0.1754629299931875 - Term: jean, Weight: 0.3394766733302969 - Term: cellphon, Weight: 0.3382691317612375 - Term: shoe, Weight: 0.3364503542631447 - Term: chat, Weight: 0.3243165290822831 - Term: shirt, Weight: 0.3068653176615744 - Term: debt, Weight: 0.2882927383087802 - Term: basebal, Weight: 0.2869163409348914 - Term: dress, Weight: 0.28001280647951093 - Term: commiss, Weight: 0.2608500145623159 - Term: nice, Weight: 0.25157562103656955 - Term: typic, Weight: 0.246202710212835 - Term: profession, Weight: 0.23767551659919647 - Term: paid, Weight: 0.22843820463006448 - Term: daili, Weight: 0.22558031754623045 - Term: minor, Weight: 0.21750936388300207 - Term: leagu, Weight: 0.20430608918486462 - Term: send, Weight: 0.20263196735488123 - Term: her, Weight: 0.10062222908737195 - Term: rest, Weight: 0.19951770881556782 - Term: gave, Weight: 0.19219673672049245 - Term: video, Weight: 0.18936678856652714 - Term: player, Weight: 0.17269790625141188 - 
+
+Edges: defaultdict(<class 'float'>, {('paid', 'valdez'): 0.5, ('bought', 'himself'): 0.5, ('polo', 'shirt'): 0.5, ('nice', 'polo'): 0.5, ('leagu', 'paycheck'): 0.5, ('jean', 'tenni'): 0.5, ('shoe', 'tenni'): 0.5, ('himself', 'jean'): 0.5, ('nice', 'shoe'): 0.5, ('chat', 'daili'): 0.5, ('chat', 'video'): 0.5, ('debt', 'her'): 0.5, ('basebal', 'profession'): 0.5, ('basebal', 'player'): 0.5, ('commiss', 'typic'): 0.5, ('leagu', 'minor'): 0.5, ('gave', 'rest'): 0.5})
+
+==========================================
+
+Pargraph id 18
+
+Nodes: Term: difo, Weight: 0.9871366031869783 - Term: dominican, Weight: 0.8379126312037298 - Term: weight, Weight: 0.8263594921220574 - Term: pound, Weight: 0.7858028573594285 - Term: ballplay, Weight: 1.0 - Term: eschew, Weight: 0.8210746073847892 - Term: skinni, Weight: 0.7905059625908959 - Term: protein, Weight: 0.7463891014241043 - Term: tempt, Weight: 0.689556282035994 - Term: stapl, Weight: 0.6761006957234387 - Term: strongest, Weight: 0.6203194278505137 - Term: aspir, Weight: 0.5901386697471123 - Term: incent, Weight: 0.5694939729925412 - Term: perfectli, Weight: 0.5610794478033747 - Term: enhanc, Weight: 0.5580922918710217 - Term: drag, Weight: 0.5558868858355736 - Term: academi, Weight: 0.5351811511642516 - Term: shake, Weight: 0.5139945961811203 - Term: teenag, Weight: 0.4829852735606411 - Term: basebal, Weight: 0.47954266367215914 - Term: lift, Weight: 0.4763902274745377 - Term: prospect, Weight: 0.43900458599607106 - Term: feet, Weight: 0.4184700268008597 - Term: drug, Weight: 0.4153997357176394 - Term: greater, Weight: 0.4113561774258037 - Term: minor, Weight: 0.36353809403195064 - Term: financi, Weight: 0.34922473306744256 - Term: leagu, Weight: 0.3414705690617474 - Term: legal, Weight: 0.33734036808047 - Term: particularli, Weight: 0.33211788863199665 - Term: carri, Weight: 0.3128679211764098 - Term: room, Weight: 0.29628470598424833 - Term: experi, Weight: 0.2935803806111067 - Term: he, Weight: 0.13920555672711613 - Term: player, Weight: 0.28864167758642906 - Term: perform, Weight: 0.2871021877587886 - Term: much, Weight: 0.1420614512543704 - 
+
+Edges: defaultdict(<class 'float'>, {('lift', 'weight'): 0.5, ('aspir', 'ballplay'): 0.5, ('ballplay', 'particularli'): 0.5, ('skinni', 'teenag'): 0.5, ('protein', 'shake'): 0.5, ('legal', 'protein'): 0.5, ('drug', 'tempt'): 0.5, ('shake', 'stapl'): 0.5, ('player', 'strongest'): 0.5, ('financi', 'incent'): 0.5, ('carri', 'incent'): 0.5, ('legal', 'perfectli'): 0.5, ('drug', 'enhanc'): 0.5, ('enhanc', 'perform'): 0.5, ('academi', 'basebal'): 0.5, ('stapl', 'shake'): 0.5, ('basebal', 'prospect'): 0.5, ('experi', 'lift'): 0.5, ('leagu', 'minor'): 0.5, ('leagu', 'perform'): 0.5})
+
+==========================================
+
+Pargraph id 19
+
+Nodes: Term: dominican, Weight: 0.5989996391149299 - Term: puro, Weight: 1.0 - Term: spanglish, Weight: 0.9498814787710218 - Term: arroz, Weight: 0.8867980284913768 - Term: rice, Weight: 0.41637455187202244 - Term: chica, Weight: 0.8274269250655071 - Term: plantain, Weight: 0.817134556869057 - Term: difo, Weight: 0.7056755645474577 - Term: boca, Weight: 0.6641587490199715 - Term: sweati, Weight: 0.6460399836559073 - Term: cafeteria, Weight: 0.5681252102364082 - Term: coastal, Weight: 0.4931801836514617 - Term: bean, Weight: 0.48356087701713424 - Term: pile, Weight: 0.42120488557656216 - Term: chicken, Weight: 0.41990430199711853 - Term: pure, Weight: 0.4106768570671605 - Term: academi, Weight: 0.38258561151891185 - Term: lunch, Weight: 0.37628942436636326 - Term: plate, Weight: 0.3729726903801561 - Term: feed, Weight: 0.3559523031733473 - Term: smile, Weight: 0.35046359048493286 - Term: broad, Weight: 0.3321852927025673 - Term: style, Weight: 0.2513310027503831 - Term: men, Weight: 0.21577800758863128 - 
+
+Edges: defaultdict(<class 'float'>, {('academi', 'dominican'): 0.5, ('arroz', 'puro'): 0.5, ('broad', 'spanglish'): 0.5, ('plantain', 'rice'): 0.5, ('pure', 'rice'): 0.5, ('chica', 'difo'): 0.5, ('boca', 'chica'): 0.5, ('lunch', 'plantain'): 0.5, ('boca', 'coastal'): 0.5, ('academi', 'coastal'): 0.5, ('chicken', 'pile'): 0.5, ('plate', 'pile'): 0.5, ('chicken', 'style'): 0.5, ('pile', 'plate'): 0.5, ('feed', 'plate'): 0.5, ('broad', 'smile'): 0.5})
+
+==========================================
+
+Pargraph id 21
+
+Nodes: Term: gcl, Weight: 1.0 - Term: difo, Weight: 0.7334012561221442 - Term: hagerstown, Weight: 0.6370111214228913 - Term: dominican, Weight: 0.6225340791349686 - Term: auburn, Weight: 0.5715269085073965 - Term: leagu, Weight: 0.2536983670447411 - Term: hitter, Weight: 0.4606627442794799 - Term: gulf, Weight: 0.452615374999367 - Term: rooki, Weight: 0.38655116304222653 - Term: potomac, Weight: 0.3755025298181315 - Term: coast, Weight: 0.3648510168873113 - Term: season, Weight: 0.18158457521272386 - Term: md, Weight: 0.34583911682888396 - Term: switch, Weight: 0.33860706795129764 - Term: failur, Weight: 0.32632466246388947 - Term: trip, Weight: 0.2908110551338944 - Term: handl, Weight: 0.2883182325632555 - Term: florida, Weight: 0.2866742892921141 - Term: ball, Weight: 0.2809837580785227 - Term: combin, Weight: 0.28074512179079225 - Term: met, Weight: 0.2640241875924478 - Term: finish, Weight: 0.2622826897283416 - Term: immedi, Weight: 0.24751076677965578 - Term: summer, Weight: 0.2474936669693964 - Term: class, Weight: 0.23961839310582808 - Term: first, Weight: 0.12399946188615205 - Term: player, Weight: 0.21444870773472152 - 
+
+Edges: defaultdict(<class 'float'>, {('gcl', 'rooki'): 0.5, ('hagerstown', 'md'): 0.5, ('dominican', 'summer'): 0.5, ('auburn', 'ball'): 0.5, ('leagu', 'switch'): 0.5, ('leagu', 'summer'): 0.5, ('hitter', 'switch'): 0.5, ('finish', 'hitter'): 0.5, ('coast', 'gulf'): 0.5, ('gulf', 'season'): 0.5, ('ball', 'rooki'): 0.5, ('class', 'potomac'): 0.5, ('class', 'md'): 0.5, ('failur', 'met'): 0.5, ('first', 'trip'): 0.5})
+
+==========================================
+
+Pargraph id 22
+
+Nodes: Term: difo, Weight: 1.0 - Term: dominican, Weight: 0.40447275184543713 - Term: dipuglia, Weight: 0.6592098222178335 - Term: auburn, Weight: 0.3713323803235257 - Term: johnni, Weight: 0.3201236770275192 - Term: scout, Weight: 0.2966552763334422 - Term: heritag, Weight: 0.274046965013737 - Term: bat, Weight: 0.2650057151421777 - Term: attitud, Weight: 0.2582136381660967 - Term: struck, Weight: 0.21945436212865205 - Term: prospect, Weight: 0.21191397092977407 - Term: languag, Weight: 0.19829124812045398 - Term: remind, Weight: 0.19440566221709968 - Term: daili, Weight: 0.18199677982711948 - Term: affect, Weight: 0.1769630658135425 - Term: minor, Weight: 0.17548518523048354 - Term: phone, Weight: 0.17386647584736772 - Term: son, Weight: 0.16964854935562182 - Term: bodi, Weight: 0.1683766868258587 - Term: mother, Weight: 0.16715555376946775 - Term: leagu, Weight: 0.16483286633860394 - Term: coach, Weight: 0.15526175825232827 - Term: bad, Weight: 0.14288939248871024 - Term: stai, Weight: 0.14134112371969695 - Term: togeth, Weight: 0.14093107708220812 - Term: intern, Weight: 0.1357319393257761 - 
+
+Edges: defaultdict(<class 'float'>, {('difo', 'struck'): 0.5, ('dominican', 'heritag'): 0.5, ('dipuglia', 'johnni'): 0.5, ('johnni', 'scout'): 0.5, ('intern', 'scout'): 0.5, ('affect', 'bat'): 0.5, ('bodi', 'languag'): 0.5, ('bad', 'languag'): 0.5, ('mother', 'remind'): 0.5, ('daili', 'phone'): 0.5, ('leagu', 'minor'): 0.5, ('stai', 'son'): 0.5, ('coach', 'leagu'): 0.5, ('son', 'stai'): 0.5})
+
+==========================================
+
+Pargraph id 23
+
+Nodes: Term: difo, Weight: 1.0 - Term: mad, Weight: 0.5650267702858979 - Term: yourself, Weight: 0.4818180632226021 - Term: myself, Weight: 0.45545727975726713 - Term: pressur, Weight: 0.3712352966526204 - Term: demand, Weight: 0.3629320105959544 - Term: help, Weight: 0.15884208107680925 - 
+
+Edges: defaultdict(<class 'float'>, {('difo', 'myself'): 0.5, ('mad', 'yourself'): 0.5})
+
+==========================================
+
+Pargraph id 24
+
+Nodes: Term: shortstop, Weight: 0.7510783587671964 - Term: difo, Weight: 1.0 - Term: hagerstown, Weight: 0.868571080435674 - Term: rbi, Weight: 0.7431091795581385 - Term: mvp, Weight: 0.6740746630532669 - Term: stolen, Weight: 0.5855059814284642 - Term: flash, Weight: 0.5699689436010429 - Term: dynam, Weight: 0.5459493590334905 - Term: atlant, Weight: 0.5129231858243071 - Term: weight, Weight: 0.49442116361635635 - Term: split, Weight: 0.4851338117622975 - Term: failur, Weight: 0.44494696421619134 - Term: mostli, Weight: 0.38193002941978715 - Term: previou, Weight: 0.35967788544586193 - Term: leagu, Weight: 0.3459202788745823 - Term: south, Weight: 0.3249614076949055 - Term: becam, Weight: 0.3158804294703407 - Term: complet, Weight: 0.3002629816639351 - Term: room, Weight: 0.30014559791187045 - Term: player, Weight: 0.2924029730581838 - Term: learn, Weight: 0.2849397544600818 - 
+
+Edges: defaultdict(<class 'float'>, {('mostli', 'shortstop'): 0.5, ('previou', 'shortstop'): 0.5, ('difo', 'learn'): 0.5, ('leagu', 'mvp'): 0.5, ('complet', 'dynam'): 0.5, ('dynam', 'player'): 0.5, ('atlant', 'leagu'): 0.5, ('atlant', 'south'): 0.5, ('room', 'weight'): 0.5, ('becam', 'complet'): 0.5})
+
+==========================================
+
+Pargraph id 25
+
+Nodes: Term: dipuglia, Weight: 1.0 - Term: junior, Weight: 0.35963353958056005 - Term: draft, Weight: 0.3231335196267617 - Term: round, Weight: 0.25683796527372915 - Term: goe, Weight: 0.25169561509281546 - Term: colleg, Weight: 0.2147497873028023 - 
+
+Edges: defaultdict(<class 'float'>, {('dipuglia', 'round'): 0.5, ('colleg', 'junior'): 0.5})
+
+==========================================
+
+Pargraph id 26
+
+Nodes: Term: difo, Weight: 1.0 - Term: cri, Weight: 0.6567401215779234 - Term: roster, Weight: 0.5226794374186993 - Term: nov, Weight: 0.4482240826116503 - Term: dream, Weight: 0.4474597410456833 - Term: februari, Weight: 0.44535246768355324 - Term: big, Weight: 0.21441859895356374 - Term: abov, Weight: 0.3629661439709234 - Term: readi, Weight: 0.36037696347129006 - Term: spring, Weight: 0.3536127445830926 - Term: mother, Weight: 0.35079469925972795 - Term: leagu, Weight: 0.3459202788745823 - Term: goal, Weight: 0.3284685515147963 - Term: class, Weight: 0.3267220925865456 - Term: train, Weight: 0.31833609198041485 - Term: despit, Weight: 0.3159604881328601 - 
+
+Edges: defaultdict(<class 'float'>, {('cri', 'mother'): 0.5, ('nov', 'roster'): 0.5, ('februari', 'train'): 0.5, ('despit', 'februari'): 0.5, ('big', 'leagu'): 0.5, ('abov', 'class'): 0.5, ('leagu', 'spring'): 0.5, ('spring', 'train'): 0.5})
+
+==========================================
+
+Pargraph id 27
+
+Nodes: Term: difo, Weight: 1.0 - Term: sate, Weight: 0.47111196339021033 - Term: father, Weight: 0.25672171462476534 - Term: telephon, Weight: 0.2470920238543955 - Term: track, Weight: 0.15002428433712756 - Term: son, Weight: 0.14919640101120743 - Term: mother, Weight: 0.14700395096902447 - Term: town, Weight: 0.1455008369884735 - Term: her, Weight: 0.07139447934704364 - Term: similar, Weight: 0.13580980147492083 - Term: hear, Weight: 0.1255576804775689 - Term: himself, Weight: 0.12449619378530082 - Term: stai, Weight: 0.12430160501787864 - 
+
+Edges: defaultdict(<class 'float'>, {('father', 'son'): 0.5})
+
+==========================================
+
+Pargraph id 28
+
+Nodes: Term: mom, Weight: 0.9396821714700734 - Term: my, Weight: 0.6705003267428546 - Term: dad, Weight: 1.0 - Term: brother, Weight: 0.786193417008131 - Term: easi, Weight: 0.6871625581347623 - Term: she, Weight: 0.31962191799886436 - Term: gave, Weight: 0.6113031768109577 - Term: everyth, Weight: 0.580047328517563 - 
+
+Edges: defaultdict(<class 'float'>, {('dad', 'she'): 0.5, ('gave', 'she'): 0.5})
+
+==========================================
+
+Pargraph id 29
+
+Nodes: Term: difo, Weight: 1.0 - Term: instruct, Weight: 0.30517078124155983 - Term: dominican, Weight: 0.5013335504439265 - Term: dugout, Weight: 0.4561606655690659 - Term: peek, Weight: 0.4525747483102815 - Term: leagu, Weight: 0.20430608918486462 - Term: player, Weight: 0.1726979062514119 - Term: academi, Weight: 0.32020554011508456 - Term: ago, Weight: 0.14765340258316775 - Term: weight, Weight: 0.29201310393633056 - Term: lift, Weight: 0.28503019914319755 - Term: sat, Weight: 0.27896418866424666 - Term: window, Weight: 0.270978925536562 - Term: prospect, Weight: 0.2626619047888112 - Term: near, Weight: 0.1736787790737311 - Term: him, Weight: 0.08667533334861868 - 
+
+Edges: defaultdict(<class 'float'>, {('difo', 'lift'): 0.5, ('instruct', 'leagu'): 0.5, ('dominican', 'prospect'): 0.5, ('dugout', 'near'): 0.5, ('lift', 'weight'): 0.5, ('near', 'sat'): 0.5})
+
+==========================================
+
+Pargraph id 30
+
+Nodes: Term: bonu, Weight: 1.0 - Term: matter, Weight: 0.3790793971978923 - Term: god, Weight: 0.6613596964267738 - Term: dream, Weight: 0.6359762854211676 - Term: talent, Weight: 0.6358559408572173 - Term: inspir, Weight: 0.5800001069777448 - Term: size, Weight: 0.5780124250690197 - Term: trust, Weight: 0.57627058579799 - Term: doubt, Weight: 0.5758776243819688 - Term: kid, Weight: 0.48121910999010276 - Term: sometim, Weight: 0.4699765844841468 - Term: grow, Weight: 0.4435471258520488 - Term: ani, Weight: 0.20852401210229343 - 
+
+Edges: defaultdict(<class 'float'>, {('matter', 'size'): 0.5, ('god', 'talent'): 0.5, ('god', 'trust'): 0.5, ('ani', 'inspir'): 0.5, ('ani', 'kid'): 0.5})
+
+==========================================
