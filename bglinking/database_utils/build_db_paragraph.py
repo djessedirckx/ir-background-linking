@@ -63,86 +63,86 @@ if __name__ == "__main__":
     # Connect Database
     conn, cursor = db_utils.connect_db(f'./resources/db/{args.name}.db')
 
-    result = db_utils.get_parids_from_docid(cursor, "557d39aa-86dc-11e4-b9b7-b8632ae73d25")
-    result = [x[0] for x in result]
-    print(result)
+    # result = db_utils.get_parids_from_docid(cursor, "557d39aa-86dc-11e4-b9b7-b8632ae73d25")
+    # result = [x[0] for x in result]
+    # print(result)
 
-    # # Loop over docids:
-    # for docid in tqdm(all_docids[:args.cut]):
-    #     # Extract all paragraphs from doc and store in list.
-    #     contents = index_utils.doc_contents(docid).split('\n')
+    # Loop over docids:
+    for docid in tqdm(all_docids[:args.cut]):
+        # Extract all paragraphs from doc and store in list.
+        contents = index_utils.doc_contents(docid).split('\n')
 
-    #     # Obtain top n tfidf terms in doc
-    #     tfidf_terms = utils.create_top_n_tfidf_vector(
-    #         index_utils, docid, n=args.n, t=3.5, total_N=total_docs)
+        # Obtain top n tfidf terms in doc
+        tfidf_terms = utils.create_top_n_tfidf_vector(
+            index_utils, docid, n=args.n, t=3.5, total_N=total_docs)
 
-    #     # Keep track of entity/term locations
-    #     location_entities = {}
+        # Keep track of entity/term locations
+        location_entities = {}
 
-    #     tf = index_utils.get_document_vector(docid)
+        tf = index_utils.get_document_vector(docid)
 
-    #     # Loop over paragraphs
-    #     for i, paragraph in enumerate(contents):
-    #         # Tfidf terms
+        # Loop over paragraphs
+        for i, paragraph in enumerate(contents):
+            # Tfidf terms
 
-    #         term_locations = defaultdict(list)
+            term_locations = defaultdict(list)
 
-    #         # Threshold for being included as paragraph
-    #         if len(paragraph.split(" ")) > 20: 
-    #             # print("Paragraph -- ", i)
-    #             # print(paragraph)
+            # Threshold for being included as paragraph
+            if len(paragraph.split(" ")) > 20: 
+                # print("Paragraph -- ", i)
+                # print(paragraph)
 
-    #             analyzed_terms = index_utils.analyze(paragraph)
-    #             # print("\n Analyzed terms--")
-    #             # print(analyzed_terms)
+                analyzed_terms = index_utils.analyze(paragraph)
+                # print("\n Analyzed terms--")
+                # print(analyzed_terms)
 
-    #             counts = list(map(tf.get, analyzed_terms))
-    #             total_tf = dict(zip(analyzed_terms, counts))
-    #             # print("\n Total tf--")
-    #             # print(total_tf)
+                counts = list(map(tf.get, analyzed_terms))
+                total_tf = dict(zip(analyzed_terms, counts))
+                # print("\n Total tf--")
+                # print(total_tf)
 
-    #             paragraph_tfs = {term:analyzed_terms.count(term) for term in analyzed_terms}
-    #             # print("\n Paragraph tf--")
-    #             # print(paragraph_tfs)
+                paragraph_tfs = {term:analyzed_terms.count(term) for term in analyzed_terms}
+                # print("\n Paragraph tf--")
+                # print(paragraph_tfs)
 
-    #             # Obtain top n tfidf terms in doc
-    #             # Tune threshold t for including more/less tdidf results
-    #             tfidf_terms = utils.create_top_n_tfidf_vector_paragraph(paragraph_tfs, index_utils, n=args.n, t=2.0, total_N=total_docs)
-    #             # print(tfidf_terms)
+                # Obtain top n tfidf terms in doc
+                # Tune threshold t for including more/less tdidf results
+                tfidf_terms = utils.create_top_n_tfidf_vector_paragraph(paragraph_tfs, index_utils, n=args.n, t=2.0, total_N=total_docs)
+                print(tfidf_terms)
                 
 
-    #             for term in tfidf_terms.keys():
-    #                 term_locations[term].append(analyzed_terms.index(term))
+                for term in tfidf_terms.keys():
+                    term_locations[term].append(analyzed_terms.index(term))
 
-    #             # present_terms = list(set(analyzed_terms).intersection(tfidf_terms))
-    #             # for term in present_terms:
-    #             #     term_locations[term].append(i)
+                # present_terms = list(set(analyzed_terms).intersection(tfidf_terms))
+                # for term in present_terms:
+                #     term_locations[term].append(i)
 
-    #             # # Rel named entities
-    #             # if args.extractor == 'rel':
-    #             #     document = {"text": paragraph, "spans": [], }
-    #             #     rel_request = requests.post("{}".format(IP_ADDRESS), json=document).json()
-    #             #     location_entities[i] = [(entity[3], entity[5]) for entity in rel_request]
+                # # Rel named entities
+                # if args.extractor == 'rel':
+                #     document = {"text": paragraph, "spans": [], }
+                #     rel_request = requests.post("{}".format(IP_ADDRESS), json=document).json()
+                #     location_entities[i] = [(entity[3], entity[5]) for entity in rel_request]
 
-    #             # Format tfidf terms
+                # Format tfidf terms
 
-    #             terms = [f'{term};;;{locations};;;{tfidf_terms[term]}' 
-    #                     for term, locations in term_locations.items()]
+                terms = [f'{term};;;{locations};;;{tfidf_terms[term]}' 
+                        for term, locations in term_locations.items()]
 
-    #             # Format named entities
-    #             # entity_loc_dict = defaultdict(list)
-    #             # entity_type_dict = {}
-    #             # for i, value in location_entities.items():
-    #             #     for entity_tuple in value:
-    #             #         entity_name, entity_type = entity_tuple
-    #             #         entity_loc_dict[entity_name].append(i)
-    #             #         entity_type_dict[entity_name] = entity_type
-    #             # entities = [f'{entity};;;{locations};;;{len(locations)};;;{entity_type_dict[entity]}'
-    #             #             for entity, locations in entity_loc_dict.items()]
+                # Format named entities
+                # entity_loc_dict = defaultdict(list)
+                # entity_type_dict = {}
+                # for i, value in location_entities.items():
+                #     for entity_tuple in value:
+                #         entity_name, entity_type = entity_tuple
+                #         entity_loc_dict[entity_name].append(i)
+                #         entity_type_dict[entity_name] = entity_type
+                # entities = [f'{entity};;;{locations};;;{len(locations)};;;{entity_type_dict[entity]}'
+                #             for entity, locations in entity_loc_dict.items()]
 
-    #             # Insert into sql database.
-    #             cursor.execute('INSERT INTO entities (docid, parid, tfidf_terms) VALUES (?,?,?)',
-    #                         (docid, i, '\n'.join(terms)))
-    #         conn.commit()
+                # Insert into sql database.
+                cursor.execute('INSERT INTO entities (docid, parid, tfidf_terms) VALUES (?,?,?)',
+                            (docid, i, '\n'.join(terms)))
+            conn.commit()
 
-    # conn.close()
+    conn.close()

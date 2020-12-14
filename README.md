@@ -46,6 +46,19 @@ A database was created to speed up the graph generation. Named entities and tf-i
 
 The database should be stored in `bglinking/resources/db`.
 
+For creating the database, first a file named `paragraph_db` should be created in `bglinking/resources/db`. Use the following SQL script to generate the required database structure.
+```sql
+CREATE TABLE `entities` (
+	`id`	INTEGER NOT NULL,
+	`docid`	INTEGER NOT NULL,
+	`parid`	INTEGER NOT NULL,
+	`tfidf_terms`	TEXT NOT NULL,
+	PRIMARY KEY(`id`)
+);
+
+```
+After creating the database, use the following command to generate tf-idf scores and store them in the database: `python database_utils/build_db_paragraph.py --name paragraph_db  --index lucene-index.core18.pos+docvectors+rawdocs_all`.
+
 ### Candidates
 Candidates were obtained using BM25 + RM3 via Anserini, see [Regressions for TREC 2019 Background Linking](https://github.com/castorini/anserini/blob/master/docs/regressions-backgroundlinking19.md).
 
