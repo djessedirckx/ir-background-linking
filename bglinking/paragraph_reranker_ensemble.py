@@ -15,7 +15,6 @@ from bglinking.general_utils import utils
 from bglinking.database_utils import db_utils
 from bglinking.graph.graph import Graph
 from bglinking.graph.graph_comparators.GMCSComparator import GMCSComparator
-from bglinking.graph.graph_builders.DefaultGraphBuilder import DefaultGraphBuilder
 from bglinking.graph.graph_builders.ParagraphGraphBuilder import ParagraphGraphBuilder
 from bglinking.graph.graph_builders.NxBuilder import convert_to_nx, create_document_graph
 
@@ -140,7 +139,7 @@ topics = utils.read_topics_and_ids_from_file(
 
 paragraph_graph_builder = ParagraphGraphBuilder()
 
-def compare_candidates(qid_docids, query_num):
+def compare_candidates(query_graph, qid_docids, query_num):
     # Create new ranking.
     ranking = {}
     addition_types = {}
@@ -174,25 +173,13 @@ def compare_candidates(qid_docids, query_num):
 
     return ranking, addition_types
 
-def sort_ranking(ranking, cut_off=10):
-    sorted_ranking = utils.normalize_dict({k: v for k, v in sorted(
-        ranking.items(), key=lambda item: item[1], reverse=True)})
-
-    score_dict = {}
-    for ranked_item, relevance_score in sorted_ranking.items():
-        score_dict[ranked_item] = relevance_score
-
-    return score_dict
-
 for topic_num, topic in tqdm(topics):  # tqdm(topics.items()):
     query_num = str(topic_num)
     query_id = topic  # ['title']
-
-    query_id = 'd636db478194c1834e2094e18f4563c9'
     
     fname = f'query_article_{query_num}'
-    query_graph = Graph(query_id, fname, paragraph_graph_builder)
-    result, par_ids = query_graph.build(**build_arguments)
+    document_graph = Graph(query_id, fname, paragraph_graph_builder)
+    result, par_ids = document_graph.build(**build_arguments)
 
     qid_docids = utils.read_docids_from_file(
         f'resources/candidates/{args.candidates}')
@@ -201,27 +188,21 @@ for topic_num, topic in tqdm(topics):  # tqdm(topics.items()):
     counter = 0
 
     number_of_candidates = len(qid_docids[query_num])
-    for pg in tqdm(result):
-        ranking, diversity_result = compare_candidates(qid_docids, query_num)
-        sorted_ranking = sort_ranking(ranking)
+    for query_graph in tqdm(result):
+        ranking, diversity_result = compare_candidates(query_graph, qid_docids, query_num)
 
-        for r_doc_id, score in sorted_ranking.items():
+        for r_doc_id, score in ranking.items():
             if r_doc_id in ensemble_ranking:
                 ensemble_ranking[r_doc_id] = ensemble_ranking[r_doc_id] + score
             else:
                 ensemble_ranking[r_doc_id] = score
-
-        # print(ensemble_ranking)
-
-        # counter += 1
-
-        # if counter == 2:
-        #     assert False
     
     for candidate in ensemble_ranking.keys():
         ensemble_ranking[candidate] = ensemble_ranking[candidate] / number_of_candidates
 
-    print(ensemble_ranking)
+    # Sort and normalize ensemble ranking
+    ensemble_ranking = utils.normalize_dict({k: v for k, v in sorted(
+        ensemble_ranking.items(), key=lambda item: item[1], reverse=True)})
 
     # Convert all query paragraph graphs to nx graphs
     graphs = list()
@@ -231,42 +212,6 @@ for topic_num, topic in tqdm(topics):  # tqdm(topics.items()):
 
     # Create document graph
     document_graph = create_document_graph(graphs, query_id, fname)
-
-    # recalculate node weights using TextRank
-    if args.textrank:
-        query_graph.rank()
-
-    # # Loop over candidate documents and calculate similarity score.
-    # for docid in qid_docids[query_num]:
-    #     # Create graph object.
-        
-    #     fname = f'candidate_article_{query_num}_{docid}'
-    #     candidate_graph = Graph(docid, fname, paragraph_graph_builder)
-    #     candidate_graph.set_graph_comparator(comparator)
-
-    #     candidate_result, candidate_par_ids = candidate_graph.build(**build_arguments)
-        
-    #     # Convert all candidate paragraph graphs to nx graphs
-    #     candidate_graphs = list()
-    #     for i in range(len(candidate_result)):
-    #         paragraph_graph = convert_to_nx(candidate_par_ids[i], docid, candidate_result[i]) 
-    #         candidate_graphs.append(paragraph_graph)
-
-    #     candidate_document_graph = create_document_graph(graphs, docid, fname)
-
-    #     # recalculate node weights using TextRank
-    #     if args.textrank:
-    #         candidate_graph.rank()
-
-    #     relevance, diversity_type = candidate_graph.compare(
-    #         query_graph, args.novelty, args.node_edge_l)
-    #     ranking[docid] = relevance
-
-    #     addition_types[docid] = diversity_type
-
-    # Sort retrieved documents according to new similarity score.
-    # sorted_ranking = utils.normalize_dict({k: v for k, v in sorted(
-    #     ranking.items(), key=lambda item: item[1], reverse=True)})
 
     # # Diversify
     # if args.diversify:
@@ -292,9 +237,10 @@ for topic_num, topic in tqdm(topics):  # tqdm(topics.items()):
     #     for key in to_delete_docids[:85]:  # delete max 85 documents per topic.
     #         del sorted_ranking[key]
 
-    # # Store results in txt file.
-    # utils.write_to_results_file(
-    #     sorted_ranking, query_num, args.run_tag, f'resources/output/{args.output}')
+    # Store results in txt file.
+    print(ensemble_ranking)
+    utils.write_to_results_file(
+        ensemble_ranking, query_num, args.run_tag, f'resources/output/{args.output}')
 
 if args.year != 20:
     # Evaluate performance with trec_eval.
