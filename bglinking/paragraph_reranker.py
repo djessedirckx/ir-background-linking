@@ -152,7 +152,7 @@ for topic_num, topic in tqdm(topics):  # tqdm(topics.items()):
         graphs.append(paragraph_graph)
 
     # Create document graph
-    document_graph = create_document_graph(graphs, query_id, fname)
+    query_graph = create_document_graph(graphs, query_id, fname)
 
     # recalculate node weights using TextRank
     if args.textrank:
@@ -180,13 +180,13 @@ for topic_num, topic in tqdm(topics):  # tqdm(topics.items()):
             paragraph_graph = convert_to_nx(candidate_par_ids[i], docid, candidate_result[i]) 
             candidate_graphs.append(paragraph_graph)
 
-        candidate_document_graph = create_document_graph(graphs, docid, fname)
+        candidate_document_graph = create_document_graph(candidate_graphs, docid, fname)
 
         # recalculate node weights using TextRank
         if args.textrank:
-            candidate_graph.rank()
+            candidate_document_graph.rank()
 
-        relevance, diversity_type = candidate_graph.compare(
+        relevance, diversity_type = candidate_document_graph.compare(
             query_graph, args.novelty, args.node_edge_l)
         ranking[docid] = relevance
 
@@ -221,6 +221,7 @@ for topic_num, topic in tqdm(topics):  # tqdm(topics.items()):
             del sorted_ranking[key]
 
     # Store results in txt file.
+    # print(sorted_ranking)
     utils.write_to_results_file(
         sorted_ranking, query_num, args.run_tag, f'resources/output/{args.output}')
 
