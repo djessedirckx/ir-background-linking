@@ -196,9 +196,6 @@ for topic_num, topic in tqdm(topics):  # tqdm(topics.items()):
                 ensemble_ranking[r_doc_id] = ensemble_ranking[r_doc_id] + score
             else:
                 ensemble_ranking[r_doc_id] = score
-    
-    for candidate in ensemble_ranking.keys():
-        ensemble_ranking[candidate] = ensemble_ranking[candidate] / number_of_candidates
 
     # Sort and normalize ensemble ranking
     ensemble_ranking = utils.normalize_dict({k: v for k, v in sorted(
@@ -238,9 +235,12 @@ for topic_num, topic in tqdm(topics):  # tqdm(topics.items()):
     #         del sorted_ranking[key]
 
     # Store results in txt file.
+    print(len(ensemble_ranking))
     print(ensemble_ranking)
     utils.write_to_results_file(
         ensemble_ranking, query_num, args.run_tag, f'resources/output/{args.output}')
+
+    assert False
 
 if args.year != 20:
     # Evaluate performance with trec_eval.
