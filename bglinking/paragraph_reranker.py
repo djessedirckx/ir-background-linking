@@ -83,6 +83,9 @@ parser.add_argument('--novelty', dest='novelty', default=0.0, type=float,
 parser.add_argument('--diversify', dest='diversify', default=False, action='store_true',
                     help='Diversify the results according to entity types')
 
+parser.add_argument('--use-gcc', dest='use_gcc', default=False, action='store_true',
+                    help='Use GCC')
+
 args = parser.parse_args()
 #utils.write_run_arguments_to_log(**vars(args))
 
@@ -209,7 +212,7 @@ for topic_num, topic in tqdm(topics):  # tqdm(topics.items()):
         graphs.append(paragraph_graph)
 
     # Create document graph
-    query_graph = create_document_graph(graphs, query_id, fname)
+    query_graph = create_document_graph(graphs, query_id, fname, args.use_gcc)
 
     # export_doc_graph(query_id, query_graph)
 
@@ -241,7 +244,7 @@ for topic_num, topic in tqdm(topics):  # tqdm(topics.items()):
             paragraph_graph = convert_to_nx(candidate_par_ids[i], docid, candidate_result[i]) 
             candidate_graphs.append(paragraph_graph)
 
-        candidate_document_graph = create_document_graph(candidate_graphs, docid, fname)
+        candidate_document_graph = create_document_graph(candidate_graphs, docid, fname, args.use_gcc)
 
         # recalculate node weights using TextRank
         if args.textrank:
@@ -283,10 +286,9 @@ for topic_num, topic in tqdm(topics):  # tqdm(topics.items()):
 
     # Store results in txt file.
     # print(sorted_ranking)
+
     utils.write_to_results_file(
         sorted_ranking, query_num, args.run_tag, f'resources/output/{args.output}')
-
-    # print("Wrote results to results file")
 
 if args.year != 20:
     # Evaluate performance with trec_eval.
