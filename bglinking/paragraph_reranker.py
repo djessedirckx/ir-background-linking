@@ -137,6 +137,60 @@ topics = utils.read_topics_and_ids_from_file(
 
 paragraph_graph_builder = ParagraphGraphBuilder()
 
+def export_doc_graph(doc_id, doc_graph):
+    nodes = doc_graph.nodes.keys()
+    edges = doc_graph.edges.keys()
+
+    export_edges = []
+
+    edge_nodes = set()
+    for edge in edges:
+        origin_node = edge[0]
+        target_node = edge[1]
+
+        edge_nodes.add(origin_node)
+        edge_nodes.add(target_node)
+
+        export_edges.append((doc_id, origin_node, target_node))
+
+    non_existent_nodes = edge_nodes.symmetric_difference(nodes)
+
+    for n_e_n in non_existent_nodes:
+        export_edges.append((doc_id, n_e_n, n_e_n))  
+
+    for doc_id, o_node, t_node in export_edges:
+        cursor.execute('INSERT INTO docGRAPHS (doc_id, origin_node, target_node) VALUES (?,?,?)',
+                    (doc_id, o_node, t_node))
+    conn.commit()
+
+def export_paragraph_structure(doc_id, result, par_ids):
+    for index, paragraph_graph in enumerate(result):
+        nodes = paragraph_graph.nodes.keys()
+        edges = paragraph_graph.edges.keys()
+
+        export_edges = []
+
+        par_id = par_ids[index]
+        edge_nodes = set()
+        for edge in edges:
+            origin_node = edge[0]
+            target_node = edge[1]
+
+            edge_nodes.add(origin_node)
+            edge_nodes.add(target_node)
+
+            export_edges.append((doc_id, par_id, origin_node, target_node))
+
+        non_existent_nodes = edge_nodes.symmetric_difference(nodes)
+
+        for n_e_n in non_existent_nodes:
+            export_edges.append((doc_id, par_id, n_e_n, n_e_n))  
+
+        for doc_id, par_id, o_node, t_node in export_edges:
+            cursor.execute('INSERT INTO paraGRAPHS (doc_id, par_id, origin_node, target_node) VALUES (?,?,?,?)',
+                        (doc_id, par_id, o_node, t_node))
+        conn.commit()
+
 for topic_num, topic in tqdm(topics):  # tqdm(topics.items()):
     query_num = str(topic_num)
     query_id = topic  # ['title']
@@ -144,6 +198,9 @@ for topic_num, topic in tqdm(topics):  # tqdm(topics.items()):
     fname = f'query_article_{query_num}'
     query_graph = Graph(query_id, fname, paragraph_graph_builder)
     result, par_ids = query_graph.build(**build_arguments)
+
+    # Exporting for sick visuals     
+    # export_paragraph_structure(query_id, result, par_ids)
 
     # Convert all query paragraph graphs to nx graphs
     graphs = list()
@@ -154,6 +211,8 @@ for topic_num, topic in tqdm(topics):  # tqdm(topics.items()):
     # Create document graph
     query_graph = create_document_graph(graphs, query_id, fname)
 
+    # export_doc_graph(query_id, query_graph)
+
     # recalculate node weights using TextRank
     if args.textrank:
         query_graph.rank()
@@ -161,6 +220,8 @@ for topic_num, topic in tqdm(topics):  # tqdm(topics.items()):
     # Create new ranking.
     ranking = {}
     addition_types = {}
+
+# conn.close()
 
     # Loop over candidate documents and calculate similarity score.
     qid_docids = utils.read_docids_from_file(
@@ -224,6 +285,8 @@ for topic_num, topic in tqdm(topics):  # tqdm(topics.items()):
     # print(sorted_ranking)
     utils.write_to_results_file(
         sorted_ranking, query_num, args.run_tag, f'resources/output/{args.output}')
+
+    # print("Wrote results to results file")
 
 if args.year != 20:
     # Evaluate performance with trec_eval.
