@@ -40,8 +40,11 @@ def create_document_graph(paragraph_graphs, doc_id, fname) -> Graph:
         doc_graph.add_edge(central_nodes[i], central_nodes[i+1], weight = max(1/np.sqrt(i+1),0.2))
 
     # Create connected graph
-    gcc = max(nx.connected_components(doc_graph), key=len)
-    g0 = doc_graph.subgraph(gcc)
+    If Connected = True:
+        gcc = max(nx.connected_components(doc_graph), key=len)
+        g0 = doc_graph.subgraph(gcc)
+    else:
+        g0 = doc_graph
     g0.name = doc_id
 
     return nx_to_internal_graph(g0, doc_id, "test")
