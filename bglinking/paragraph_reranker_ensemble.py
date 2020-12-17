@@ -179,6 +179,8 @@ for topic_num, topic in tqdm(topics):  # tqdm(topics.items()):
     
     fname = f'query_article_{query_num}'
     document_graph = Graph(query_id, fname, paragraph_graph_builder)
+
+    # Build paragraph graphs
     result, par_ids = document_graph.build(**build_arguments)
 
     qid_docids = utils.read_docids_from_file(
@@ -187,10 +189,12 @@ for topic_num, topic in tqdm(topics):  # tqdm(topics.items()):
     ensemble_ranking = {}
     counter = 0
 
+    # Use each paragraph as a separate query graph
     number_of_candidates = len(qid_docids[query_num])
     for query_graph in tqdm(result):
         ranking, diversity_result = compare_candidates(query_graph, qid_docids, query_num)
 
+        # Store results in ensemble ranking
         for r_doc_id, score in ranking.items():
             if r_doc_id in ensemble_ranking:
                 ensemble_ranking[r_doc_id] = ensemble_ranking[r_doc_id] + score
@@ -235,12 +239,8 @@ for topic_num, topic in tqdm(topics):  # tqdm(topics.items()):
     #         del sorted_ranking[key]
 
     # Store results in txt file.
-    print(len(ensemble_ranking))
-    print(ensemble_ranking)
     utils.write_to_results_file(
         ensemble_ranking, query_num, args.run_tag, f'resources/output/{args.output}')
-
-    assert False
 
 if args.year != 20:
     # Evaluate performance with trec_eval.
