@@ -23,7 +23,7 @@ def convert_to_nx(paragraph_id, doc_id, orig_graph: Graph) -> nx.Graph:
 
     return paragraph_graph
 
-def create_document_graph(paragraph_graphs, doc_id, fname) -> Graph:
+def create_document_graph(paragraph_graphs, doc_id, fname, use_gcc=False) -> Graph:
     doc_graph = nx.Graph()
     central_nodes = []
 
@@ -40,7 +40,7 @@ def create_document_graph(paragraph_graphs, doc_id, fname) -> Graph:
         doc_graph.add_edge(central_nodes[i], central_nodes[i+1], weight = max(1/np.sqrt(i+1),0.2))
 
     # Create connected graph
-    If Connected = True:
+    if use_gcc:
         gcc = max(nx.connected_components(doc_graph), key=len)
         g0 = doc_graph.subgraph(gcc)
     else:
