@@ -71,10 +71,6 @@ if __name__ == "__main__":
         tfidf_terms = utils.create_top_n_tfidf_vector(
             index_utils, docid, n=args.n, t=3.5, total_N=total_docs)
 
-        print(tfidf_terms)
-
-        assert 1 == 2
-
         # Keep track of entity/term locations
         location_entities = {}
         term_locations = defaultdict(list)

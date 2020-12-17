@@ -203,6 +203,7 @@ for topic_num, topic in tqdm(topics):  # tqdm(topics.items()):
     utils.write_to_results_file(
         sorted_ranking, query_num, args.run_tag, f'resources/output/{args.output}')
 
+
 if args.year != 20:
     # Evaluate performance with trec_eval.
     os.system(

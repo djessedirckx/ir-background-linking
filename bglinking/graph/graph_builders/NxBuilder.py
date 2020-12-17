@@ -30,7 +30,10 @@ def create_document_graph(paragraph_graphs, doc_id, fname) -> Graph:
     # Fetch central nodes
     for par_graph in paragraph_graphs:
         doc_graph = nx.compose(doc_graph, par_graph)
-        central_nodes.append(central_node(par_graph))
+
+        central_node_result = central_node(par_graph)
+        if central_node_result:
+            central_nodes.append(central_node_result)
 
     # Create edges
     for i in range(len(central_nodes)-1):
@@ -47,7 +50,9 @@ def central_node(graph):
     betw_centr = nx.betweenness_centrality(graph)
     betw_keys = list(betw_centr.keys())
 
-    return betw_keys[np.argmax(np.array([betw_centr[i] for i in betw_keys]))]
+    if betw_keys:
+        return betw_keys[np.argmax(np.array([betw_centr[i] for i in betw_keys]))]
+    return None
 
 def nx_to_internal_graph(doc_graph: nx.Graph, doc_id, fname) -> Graph:
     internal_graph = Graph(doc_id, fname)
