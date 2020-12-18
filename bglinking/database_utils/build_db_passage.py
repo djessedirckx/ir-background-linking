@@ -14,6 +14,7 @@ from pyserini import index
 from tqdm import tqdm
 from collections import defaultdict
 from operator import itemgetter
+import numpy as np
 
 
 # REL Info
@@ -68,10 +69,6 @@ if __name__ == "__main__":
     # Connect Database
     conn, cursor = db_utils.connect_db(f'./resources/db/{args.name}.db')
 
-    # result = db_utils.get_parids_from_docid(cursor, "557d39aa-86dc-11e4-b9b7-b8632ae73d25")
-    # result = [x[0] for x in result]
-    # print(result)
-
     # Loop over docids:
 
     pattern = re.compile(r"\. |\n")
@@ -80,23 +77,10 @@ if __name__ == "__main__":
 
         # Extract lines using regex
         contents = list(filter(None, pattern.split(index_utils.doc_contents(docid))))
+        passages = np.array_split(contents, args.passages)
 
-        # Calculate length of a passage
-        line_count = len(contents)
-        passage_len = math.ceil(line_count / (args.passages))
-        passage_indexes = list(range(passage_len, line_count, passage_len))
-
-        start = 0
-        passages = []
-
-        # Extract passages using passage indexes
-        for passage_index in passage_indexes:
-            stop = passage_index
-            passages.append(contents[start:stop])
-            start = stop
-
-        # Include last passage as well
-        passages.append(contents[start:line_count])
+        if len(passages) != 5:
+            print("encountered incorrect parsing for docid: {}".format(docid))
 
         # Loop over passages
         for i, passage in enumerate(passages):
