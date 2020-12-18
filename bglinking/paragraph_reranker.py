@@ -86,6 +86,9 @@ parser.add_argument('--diversify', dest='diversify', default=False, action='stor
 parser.add_argument('--use-gcc', dest='use_gcc', default=False, action='store_true',
                     help='Use GCC')
 
+parser.add_argument('--passage-nr', dest='passage_nr', default=0, type=int,
+                    help='Passage used as query graph')
+
 args = parser.parse_args()
 #utils.write_run_arguments_to_log(**vars(args))
 
@@ -197,6 +200,8 @@ def export_paragraph_structure(doc_id, result, par_ids):
 for topic_num, topic in tqdm(topics):  # tqdm(topics.items()):
     query_num = str(topic_num)
     query_id = topic  # ['title']
+
+    passage_nr = args.passage_nr
     
     fname = f'query_article_{query_num}'
     query_graph = Graph(query_id, fname, paragraph_graph_builder)
@@ -206,15 +211,17 @@ for topic_num, topic in tqdm(topics):  # tqdm(topics.items()):
     # export_paragraph_structure(query_id, result, par_ids)
 
     # Convert all query paragraph graphs to nx graphs
-    graphs = list()
-    for i in range(len(result)):
-        paragraph_graph = convert_to_nx(par_ids[i], query_id, result[i]) 
-        graphs.append(paragraph_graph)
+    # graphs = list()
+    # for i in range(len(result)):
+    #     paragraph_graph = convert_to_nx(par_ids[i], query_id, result[i]) 
+    #     graphs.append(paragraph_graph)
 
-    # Create document graph
-    query_graph = create_document_graph(graphs, query_id, fname, args.use_gcc)
+    # # Create document graph
+    # query_graph = create_document_graph(graphs, query_id, fname, args.use_gcc)
 
     # export_doc_graph(query_id, query_graph)
+
+    query_graph = result[passage_nr]
 
     # recalculate node weights using TextRank
     if args.textrank:
@@ -285,8 +292,6 @@ for topic_num, topic in tqdm(topics):  # tqdm(topics.items()):
             del sorted_ranking[key]
 
     # Store results in txt file.
-    # print(sorted_ranking)
-
     utils.write_to_results_file(
         sorted_ranking, query_num, args.run_tag, f'resources/output/{args.output}')
 
