@@ -21,7 +21,7 @@ Below the relevant changes that were made as continuation on Pepijn Boers' code 
 - [PowerBI](https://github.com/djessedirckx/ir-background-linking/tree/main/PowerBI): This directory contains PowerBI scripts that were used for visualizing the results obtained by this project.
 
 # Results
-- Visual [paragraph graph exploration](https://app.powerbi.com/view?r=eyJrIjoiMTYyOGJmMzItZDFjMS00MGM3LWFlNjgtYzgwNGJmYjhlNGJiIiwidCI6IjU1YmVlZWRmLTdhZmItNGI2YS1hYjU3LTBlMjYxYzI2NDJkZSIsImMiOjl9&pageName=ReportSection) (considering time constraints passage graphs were not visualized).
+- [Visual paragraph graph exploration](https://app.powerbi.com/view?r=eyJrIjoiY2U0NjJjMmQtY2QyZS00MjQ4LWExMjEtZWJiMzY2YzcyNjJmIiwidCI6IjU1YmVlZWRmLTdhZmItNGI2YS1hYjU3LTBlMjYxYzI2NDJkZSIsImMiOjl9).
 - [Research question results](https://app.powerbi.com/view?r=eyJrIjoiYWIyYjY1MTktM2Q1Yi00NjFkLWI1MmYtOGY4NGI4YjAwN2Q4IiwidCI6IjU1YmVlZWRmLTdhZmItNGI2YS1hYjU3LTBlMjYxYzI2NDJkZSIsImMiOjl9&pageName=ReportSection).
 
 # Setup
