@@ -5,7 +5,7 @@ As a start, [Pepijn Boers']((https://github.com/PepijnBoers/background-linking))
 
 # Relevant changes
 
-## Ranking changes
+## Ranking system
 Below the relevant changes that were made as continuation on Pepijn Boers' code are listed:
 - [build_db_paragraph.py](https://github.com/djessedirckx/ir-background-linking/blob/main/bglinking/database_utils/build_db_paragraph.py): This script is used to compute tf-idf scores on paragraph level and store them in the database.
 - [build_db_passage.py](https://github.com/djessedirckx/ir-background-linking/blob/main/bglinking/database_utils/build_db_passage.py): This script is used to compute tf-idf scores on passage level and store them in the database.
