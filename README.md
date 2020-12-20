@@ -22,7 +22,7 @@ Below the relevant changes that were made as continuation on Pepijn Boers' code 
 
 # Results
 - Visual [paragraph graph exploration](https://app.powerbi.com/view?r=eyJrIjoiMTYyOGJmMzItZDFjMS00MGM3LWFlNjgtYzgwNGJmYjhlNGJiIiwidCI6IjU1YmVlZWRmLTdhZmItNGI2YS1hYjU3LTBlMjYxYzI2NDJkZSIsImMiOjl9&pageName=ReportSection) (considering time constraints passage graphs were not visualized).
-- [Research question results](https://app.powerbi.com/view?r=eyJrIjoiYWIyYjY1MTktM2Q1Yi00NjFkLWI1MmYtOGY4NGI4YjAwN2Q4IiwidCI6IjU1YmVlZWRmLTdhZmItNGI2YS1hYjU3LTBlMjYxYzI2NDJkZSIsImMiOjl9).
+- [Research question results](https://app.powerbi.com/view?r=eyJrIjoiYWIyYjY1MTktM2Q1Yi00NjFkLWI1MmYtOGY4NGI4YjAwN2Q4IiwidCI6IjU1YmVlZWRmLTdhZmItNGI2YS1hYjU3LTBlMjYxYzI2NDJkZSIsImMiOjl9&pageName=ReportSection).
 
 # Setup
 
