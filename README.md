@@ -130,7 +130,7 @@ docker run --rm -v $PWD/bglinking/resources:/opt/background-linking/bglinking/re
 ```
 
 ## RQ 2
-The `--passage-nr` parameter can be changed to use a different paragraph as query article (ranges from 1-5)
+The `--passage-nr` parameter can be changed to use a different paragraph as query article (ranges from 0-4)
 
 ```
 docker run --rm -v $PWD/bglinking/resources:/opt/background-linking/bglinking/resources passage-importance --index lucene-index.core18.pos+docvectors+rawdocs_all --db passage-database.db --topics topics.backgroundlinking19.txt --qrels qrels.backgroundlinking19.txt --candidates run.backgroundlinking19.bm25+rm3.topics.backgroundlinking19.txt --nr-terms 100 --text-distance 1 --passage-nr 1 --output passage_experiment_1.txt --run-tag passage_experiment_1
