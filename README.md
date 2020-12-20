@@ -1,12 +1,37 @@
-# background-linking
-This repository contains code following on [Pepijn Broers' code](https://github.com/PepijnBoers/background-linking) to find relevant background articles for a given query article using graphs that are
-constructed per paragraph. **Note**: The commands below are not updated yet!
+# Background-linking
+This repository is used for code to build a ranking system for finding relevant background articles for news articles and blog posts using the [TREC Washington Post Dataset](https://trec.nist.gov/data/wapost/).
 
+As a start, [Pepijn Boers']((https://github.com/PepijnBoers/background-linking)) was used. He did previous research on this topic and the approach used in this research can be seen as a follow up for his approach. 
+
+# Relevant changes
+
+## Ranking changes
+Below the relevant changes that were made as continuation on Pepijn Boers' code are listed:
+- [build_db_paragraph.py](https://github.com/djessedirckx/ir-background-linking/blob/main/bglinking/database_utils/build_db_paragraph.py): This script is used to compute tf-idf scores on paragraph level and store them in the database.
+- [build_db_passage.py](https://github.com/djessedirckx/ir-background-linking/blob/main/bglinking/database_utils/build_db_passage.py): This script is used to compute tf-idf scores on passage level and store them in the database.
+- [ParagraphGraphBuilder.py](https://github.com/djessedirckx/ir-background-linking/blob/main/bglinking/graph/graph_builders/ParagraphGraphBuilder.py): This class is used to build graphs on paragraph/passage level depending on the database being used.
+- [NxBuilder.py](https://github.com/djessedirckx/ir-background-linking/blob/main/bglinking/graph/graph_builders/NxBuilder.py): This module is used to connect multiple sub-graphs on document level using the NetworkX library.
+- [create_top_n_tfidf_vector_paragraph()](https://github.com/djessedirckx/ir-background-linking/blob/8461dd646cb137ea20fcff417627b50766bf85b4/bglinking/general_utils/utils.py#L224): This function is used to compute tf-idf scores on either paragraph or passage level depending on the configuration being used.
+- [paragraph_reranker.py](https://github.com/djessedirckx/ir-background-linking/blob/main/bglinking/paragraph_reranker.py): This script functions as an entrance file for ranking background articles using either paragraph- or passage sub-graphs depending on the configuration being used.
+- [passage_importance.py](https://github.com/djessedirckx/ir-background-linking/blob/main/bglinking/passage_importance.py): This script is used to determine relevance scores for different passages of a query article.
+- [paragraph_reranker_ensemble.py](https://github.com/djessedirckx/ir-background-linking/blob/main/bglinking/paragraph_reranker_ensemble.py): This script functions as an entrance file for ranking background articles using an ensemble voting method.
+
+## Other important files
+- [POC](https://github.com/djessedirckx/ir-background-linking/tree/main/POC): This directory contains POC code that was written for creating document-level graphs.
+- [PowerBI](https://github.com/djessedirckx/ir-background-linking/tree/main/PowerBI): This directory contains PowerBI scripts that were used for visualizing the results obtained by this project.
+
+# Results
+- Visual [paragraph graph exploration](https://app.powerbi.com/view?r=eyJrIjoiMTYyOGJmMzItZDFjMS00MGM3LWFlNjgtYzgwNGJmYjhlNGJiIiwidCI6IjU1YmVlZWRmLTdhZmItNGI2YS1hYjU3LTBlMjYxYzI2NDJkZSIsImMiOjl9&pageName=ReportSection) (considering time constraints passage graphs were not visualized).
+- [Research question results](https://app.powerbi.com/view?r=eyJrIjoiYWIyYjY1MTktM2Q1Yi00NjFkLWI1MmYtOGY4NGI4YjAwN2Q4IiwidCI6IjU1YmVlZWRmLTdhZmItNGI2YS1hYjU3LTBlMjYxYzI2NDJkZSIsImMiOjl9).
+
+# Setup
 
 ## Docker
+To be able to run the experiments more easily Docker was used. The Docker images for the respective experiments the following commands can be used.
+
 After cloning the repository build the docker image using the dockerfile:
 
-Background-linking on document level:
+Background-linking on document level (using Pepijn's configuration):
 
 ```
 docker build . -f docker-document -t document-linking
@@ -17,28 +42,31 @@ Background-linking on paragraph level
 docker build . -f docker-paragraph -t paragraph-linking
 ```
 
-
-Test the setup with sample resources:
+Background-linking on passage level
 ```
-docker run --rm -v $PWD/bglinking/resources:/opt/background-linking/bglinking/resources document-linking \
-           --index lucene-index.sample --db sample.db --topics topics.sample.txt \
-           --qrels qrels.sample.txt --candidates candidates.sample.txt \
-           --nr-terms 100 --output sample.txt --run-tag sample
+docker build . -f docker-paragraph -t passage-linking
 ```
-The `ndcg_cut_5` should be 0.7505.
 
+Passage importance
+```
+docker build . -f docker-passage-importance -t passage-importance
+```
+
+Ensemble voting
+```
+docker build . -f docker-ensemble -t ensemble-linking
+```
 ## Resources
 In order to reproduce the experiments, you need to specify the exact same resources as described below. 
 
-- index: Index of the Washington Post Corpus (v2 or v3)
-- db: Database with terms and named entities for all topic/candidate docs
-- embeddings: Word embedding file
+- index: Index of the Washington Post Corpus (v2)
+- db: Database with tf-idf scores
 - topics: File with topics (TREC format)
 - qrels: Query relevance file for the specified topics
 - candidates: Candidate documents
 
 ### Index
-TREC's [Washington Post](https://trec.nist.gov/data/wapost/) index was build using [Anserini](https://github.com/castorini/anserini), see [Regressions for TREC 2019 Background Linking](https://github.com/castorini/anserini/blob/master/docs/regressions-backgroundlinking19.md). In order to obtain the corpus, an individual agreement form has to be completed first. The exact command we used is shown bellow (note that we used version 2 of the corpus for the 2019 topics, and version 3 for the 2020 topics):
+TREC's [Washington Post](https://trec.nist.gov/data/wapost/) index was build using [Anserini](https://github.com/castorini/anserini), see [Regressions for TREC 2019 Background Linking](https://github.com/castorini/anserini/blob/master/docs/regressions-backgroundlinking19.md). In order to obtain the corpus, an individual agreement form has to be completed first. The exact command we used is shown below:
 
 ```
 ./target/appassembler/bin/IndexCollection -collection WashingtonPostCollection \
@@ -50,11 +78,12 @@ TREC's [Washington Post](https://trec.nist.gov/data/wapost/) index was build usi
 The obtained index should be stored in `bglinking/resources/Index`.
 
 ### Database
-A database was created to speed up the graph generation. Named entities and tf-idf terms were stored per candidate document in a database. [REL](https://github.com/informagi/REL) was used for the extraction of named entities, see build_db.py. 
+A database was created to speed up the graph generation. Tf-idf terms were stored per candidate document in a database. 
 
-The database should be stored in `bglinking/resources/db`.
+- Tf-idf terms on paragraph level: [database script](https://github.com/djessedirckx/ir-background-linking/blob/main/bglinking/database_utils/build_db_paragraph.py)
+- Tf-idf terms on passage level: [database](https://github.com/djessedirckx/ir-background-linking/blob/main/bglinking/database_utils/build_db_passage.py)
 
-For creating the database, first a file named `paragraph_db` should be created in `bglinking/resources/db`. Use the following SQL script to generate the required database structure.
+For creating the database, first create files called `paragraph-database.db` and `passage-database.db` in `bglinking/resources/db`. Use the following SQL script to generate the required database structure.
 ```sql
 CREATE TABLE `entities` (
 	`id`	INTEGER NOT NULL,
@@ -63,19 +92,21 @@ CREATE TABLE `entities` (
 	`tfidf_terms`	TEXT NOT NULL,
 	PRIMARY KEY(`id`)
 );
-
 ```
-After creating the database, use the following command to generate tf-idf scores and store them in the database: `python database_utils/build_db_paragraph.py --name paragraph_db  --index lucene-index.core18.pos+docvectors+rawdocs_all`.
+
+The databases can be generated using the following commands
+```sh
+python database_utils/build_db_paragraph.py --name paragraph-database --index lucene-index.core18.pos+docvectors+rawdocs_all
+```
+
+```sh
+python database_utils/build_db_passage.py --name passage-database --index lucene-index.core18.pos+docvectors+rawdocs_all --passages 5
+```
 
 ### Candidates
 Candidates were obtained using BM25 + RM3 via Anserini, see [Regressions for TREC 2019 Background Linking](https://github.com/castorini/anserini/blob/master/docs/regressions-backgroundlinking19.md).
 
 The candidates file should be stored in `bglinking/resources/candidates`
-
-### Embeddings
-We made use of embeddings from [GEEER](https://github.com/informagi/GEEER), they can be downloaded from [this](https://surfdrive.surf.nl/files/index.php/s/V2mc4zrcE46Ucvs) link.
-
-The embeddings should be extracted and stored in `bglinking/resources/embeddings`.
 
 ### Topics and Qrels
 Topics and query relevance files can be downloaded from the News Track [page](https://trec.nist.gov/data/news2019.html).
@@ -83,161 +114,39 @@ Topics and query relevance files can be downloaded from the News Track [page](ht
 Store in `bglinking/resources/topics-and-qrels`
 
 
-## graph configuration
-- nr-terms: Number of terms used in the graph (default = 100)
-- term-tfidf: Scaler for tf-idf weight of node (default = 1.0)
-- term-postition: Scaler for position weight of node (default = 0.0)
-- term-embedding: Scaler for embedding weight of edges, i.e. cosine similarity term vectors (default = 0.0)
-- text-distance: Scaler for distance weight for edges (default = 0.0)
+# Running experiments
 
-- use-entities: Append named entities to graph nodes
-- textrank: Apply textrank to current graph
+## RQ 1
 
+The configurations below use the full graph. Add the `--use-gcc` parameter to use the greatest connected component instead.
 
-## output
-- output: Name of output file
-- run-tag: Run-tag in output file
+### Paragraph level
+```
+docker run --rm -v $PWD/bglinking/resources:/opt/background-linking/bglinking/resources paragraph-linking --index lucene-index.core18.pos+docvectors+rawdocs_all --db paragraph-database.db --topics topics.backgroundlinking19.txt --qrels qrels.backgroundlinking19.txt --candidates run.backgroundlinking19.bm25+rm3.topics.backgroundlinking19.txt --nr-terms 100 --text-distance 1 --output paragraph-linking.txt --run-tag paragraph-linking
+```
+### Passage level
+```
+docker run --rm -v $PWD/bglinking/resources:/opt/background-linking/bglinking/resources passage-linking --index lucene-index.core18.pos+docvectors+rawdocs_all --db passage-database.db --topics topics.backgroundlinking19.txt --qrels qrels.backgroundlinking19.txt --candidates run.backgroundlinking19.bm25+rm3.topics.backgroundlinking19.txt --nr-terms 100 --text-distance 1 --output passage-linking.txt --run-tag passage-linking
+```
 
-## other
-- diversity: Apply diversity filter
-- stats: Show index stats
-- year: Year of TREC edition
+## RQ 2
+The `--passage-nr` parameter can be changed to use a different paragraph as query article (ranges from 1-5)
 
-# Experiments Graph Configurations
+```
+docker run --rm -v $PWD/bglinking/resources:/opt/background-linking/bglinking/resources passage-importance --index lucene-index.core18.pos+docvectors+rawdocs_all --db passage-database.db --topics topics.backgroundlinking19.txt --qrels qrels.backgroundlinking19.txt --candidates run.backgroundlinking19.bm25+rm3.topics.backgroundlinking19.txt --nr-terms 100 --text-distance 1 --passage-nr 1 --output passage_experiment_1.txt --run-tag passage_experiment_1
+```
+
+## RQ 3
+
+### Paragraph level
+```
+docker run --rm -v $PWD/bglinking/resources:/opt/background-linking/bglinking/resources ensemble-linking --index lucene-index.core18.pos+docvectors+rawdocs_all --db paragraph-database.db --topics topics.backgroundlinking19.txt --qrels qrels.backgroundlinking19.txt --candidates run.backgroundlinking19.bm25+rm3.topics.backgroundlinking19.txt --nr-terms 100 --text-distance 1 --output ensemble-paragraph-linking.txt --run-tag ensemble-paragraph-linking
+```
+
+### Passage level
+```
+docker run --rm -v $PWD/bglinking/resources:/opt/background-linking/bglinking/resources ensemble-linking --index lucene-index.core18.pos+docvectors+rawdocs_all --db passage-database.db --topics topics.backgroundlinking19.txt --qrels qrels.backgroundlinking19.txt --candidates run.backgroundlinking19.bm25+rm3.topics.backgroundlinking19.txt --nr-terms 100 --text-distance 1 --output ensemble-passage-linking.txt --run-tag ensemble-passage-linking
+```
+
 Results are stored in `bglinking/resources/output`
 
-## Graph [100 terms, no edges]
-```
-docker run --rm -v $PWD/bglinking/resources:/opt/background-linking/bglinking/resources blimg \
-           --index lucene-index.core18.pos+docvectors+rawdocs_all --db entity_database_19.db \
-           --topics topics.backgroundlinking19.txt --qrels qrels.backgroundlinking19.txt \
-           --candidates run.backgroundlinking19.bm25+rm3.topics.backgroundlinking19.txt \
-           --nr-terms 100 --output simple_graph_19.txt --run-tag simple_graph
-```
-
-## Graph [100 terms, edges based on text distance]
-```
-docker run --rm -v $PWD/bglinking/resources:/opt/background-linking/bglinking/resources blimg \
-           --index lucene-index.core18.pos+docvectors+rawdocs_all --db entity_database_19.db \
-           --topics topics.backgroundlinking19.txt --qrels qrels.backgroundlinking19.txt \
-           --candidates run.backgroundlinking19.bm25+rm3.topics.backgroundlinking19.txt \
-           --nr-terms 100 --text-distance 1 --output simple_graph_text_distance_19.txt \
-           --run-tag simple_graph_text_distance
-```
-
-## Graph [100 terms, edges based on word embeddings]
-```
-docker run --rm -v $PWD/bglinking/resources:/opt/background-linking/bglinking/resources blimg \
-           --index lucene-index.core18.pos+docvectors+rawdocs_all --db entity_database_19.db \
-           --topics topics.backgroundlinking19.txt --qrels qrels.backgroundlinking19.txt \
-           --candidates run.backgroundlinking19.bm25+rm3.topics.backgroundlinking19.txt \
-           --embedding WKN-vectors/WKN-vectors.bin \
-           --nr-terms 100 --term-embedding 1 --output simple_graph_term_embedding_19.txt \
-           --run-tag simple_graph_term_embedding
-```
-
-## Graph [100 terms - weights based on term position]
-```
-docker run --rm -v $PWD/bglinking/resources:/opt/background-linking/bglinking/resources blimg \
-           --index lucene-index.core18.pos+docvectors+rawdocs_all --db entity_database_19.db \
-           --topics topics.backgroundlinking19.txt --qrels qrels.backgroundlinking19.txt \
-           --candidates run.backgroundlinking19.bm25+rm3.topics.backgroundlinking19.txt \
-           --nr-terms 100 --term-position 1 --output simple_graph_term_position_19.txt \
-           --run-tag simple_graph_term_position
-```
-
-## Graph configurations combining: term position, text distance & word embedding.
-```
-docker run --rm -v $PWD/bglinking/resources:/opt/background-linking/bglinking/resources blimg \
-           --index lucene-index.core18.pos+docvectors+rawdocs_all --db entity_database_19.db \
-           --topics topics.backgroundlinking19.txt --qrels qrels.backgroundlinking19.txt \
-           --candidates run.backgroundlinking19.bm25+rm3.topics.backgroundlinking19.txt \
-           --nr-terms 100 --term-position 1 --text-distance 1 \
-           --output simple_graph_term_position_text_rank_19.txt \
-           --run-tag simple_graph_term_position_text_rank
-
-docker run --rm -v $PWD/bglinking/resources:/opt/background-linking/bglinking/resources blimg \
-           --index lucene-index.core18.pos+docvectors+rawdocs_all --db entity_database_19.db \
-           --topics topics.backgroundlinking19.txt --qrels qrels.backgroundlinking19.txt \
-           --candidates run.backgroundlinking19.bm25+rm3.topics.backgroundlinking19.txt \
-           --embedding WKN-vectors/WKN-vectors.bin \
-           --nr-terms 100 --term-position 1 --term-embedding 1 \
-           --output simple_graph_term_position_text_embedding_19.txt \
-           --run-tag simple_graph_term_position_text_embedding
-
-docker run --rm -v $PWD/bglinking/resources:/opt/background-linking/bglinking/resources blimg \
-           --index lucene-index.core18.pos+docvectors+rawdocs_all --db entity_database_19.db \
-           --topics topics.backgroundlinking19.txt --qrels qrels.backgroundlinking19.txt \
-           --candidates run.backgroundlinking19.bm25+rm3.topics.backgroundlinking19.txt \
-           --embedding WKN-vectors/WKN-vectors.bin \
-           --nr-terms 100 --term-position 1 --text-distance 1 --term-embedding 1 \
-           --output simple_graph_term_position_text_distance_19.txt \
-           --run-tag simple_graph_term_position_text_distance
-```
-
-## Add named entities to graph nodes (simplest configuration)
-```
-docker run --rm -v $PWD/bglinking/resources:/opt/background-linking/bglinking/resources blimg \
-           --index lucene-index.core18.pos+docvectors+rawdocs_all --db entity_database_19.db \
-           --topics topics.backgroundlinking19.txt --qrels qrels.backgroundlinking19.txt \
-           --candidates run.backgroundlinking19.bm25+rm3.topics.backgroundlinking19.txt \
-           --use-entities --output only_entities_19.txt --run-tag only_entities
-```
-
-## Add named entities to graph nodes (best performing run)
-```
-docker run --rm -v $PWD/bglinking/resources:/opt/background-linking/bglinking/resources blimg \
-           --index lucene-index.core18.pos+docvectors+rawdocs_all --db entity_database_19.db \
-           --topics topics.backgroundlinking19.txt --qrels qrels.backgroundlinking19.txt \
-           --candidates run.backgroundlinking19.bm25+rm3.topics.backgroundlinking19.txt \
-           --embedding WKN-vectors/WKN-vectors.bin \
-           --nr-terms 100 --term-position 1 --term-embedding 1 --use-entities \
-           --output best_graph_entities_19.txt \
-           --run-tag best_graph_entities
-```
-
-## Test effect of novelty algorithm (without named entities)
-```
-docker run --rm -v $PWD/bglinking/resources:/opt/background-linking/bglinking/resources blimg \
-           --index lucene-index.core18.pos+docvectors+rawdocs_all --db entity_database_19.db \
-           --topics topics.backgroundlinking19.txt --qrels qrels.backgroundlinking19.txt \
-           --candidates run.backgroundlinking19.bm25+rm3.topics.backgroundlinking19.txt \
-           --embedding WKN-vectors/WKN-vectors.bin \
-           --nr-terms 100 --term-position 1 --term-embedding 1 --novelty 0.05 \
-           --output best_graph_novelty_19.txt \
-           --run-tag best_graph_novelty
-```
-
-## Test effect of novelty algorithm (with named entities)
-```
-docker run --rm -v $PWD/bglinking/resources:/opt/background-linking/bglinking/resources blimg \
-           --index lucene-index.core18.pos+docvectors+rawdocs_all --db entity_database_19.db \
-           --topics topics.backgroundlinking19.txt --qrels qrels.backgroundlinking19.txt \
-           --candidates run.backgroundlinking19.bm25+rm3.topics.backgroundlinking19.txt \
-           --embedding WKN-vectors/WKN-vectors.bin \
-           --nr-terms 100 --term-position 1 --term-embedding 1 --use-entities --novelty 0.05 \
-           --output best_graph_novelty_entities_19.txt --run-tag best_graph_novelty_entities
-```
-
-## Test best run with TextRank algorithm
-```
-docker run --rm -v $PWD/bglinking/resources:/opt/background-linking/bglinking/resources blimg \
-           --index lucene-index.core18.pos+docvectors+rawdocs_all --db entity_database_19.db \
-           --topics topics.backgroundlinking19.txt --qrels qrels.backgroundlinking19.txt \
-           --candidates run.backgroundlinking19.bm25+rm3.topics.backgroundlinking19.txt \
-           --embedding WKN-vectors/WKN-vectors.bin \
-           --nr-terms 100 --term-position 1 --term-embedding 1 --textrank \
-           --output best_graph_textrank_19.txt \
-           --run-tag best_graph_textrank
-```
-
-## Test diversification
-```
-docker run --rm -v $PWD/bglinking/resources:/opt/background-linking/bglinking/resources blimg \
-           --index lucene-index.core18.pos+docvectors+rawdocs_all --db entity_database_19.db \
-           --topics topics.backgroundlinking19.txt --qrels qrels.backgroundlinking19.txt \
-           --candidates run.backgroundlinking19.bm25+rm3.topics.backgroundlinking19.txt \
-           --embedding WKN-vectors/WKN-vectors.bin \
-           --nr-terms 100 --term-position 1 --term-embedding 1 --diversify --use-entities \
-           --output best_graph_diversified_19.txt --run-tag best_graph_diversified
-```
