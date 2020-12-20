@@ -207,21 +207,19 @@ for topic_num, topic in tqdm(topics):  # tqdm(topics.items()):
     query_graph = Graph(query_id, fname, paragraph_graph_builder)
     result, par_ids = query_graph.build(**build_arguments)
 
-    # Exporting for sick visuals     
+    # Exporting for visuals     
     # export_paragraph_structure(query_id, result, par_ids)
 
     # Convert all query paragraph graphs to nx graphs
-    # graphs = list()
-    # for i in range(len(result)):
-    #     paragraph_graph = convert_to_nx(par_ids[i], query_id, result[i]) 
-    #     graphs.append(paragraph_graph)
+    graphs = list()
+    for i in range(len(result)):
+        paragraph_graph = convert_to_nx(par_ids[i], query_id, result[i]) 
+        graphs.append(paragraph_graph)
 
     # # Create document graph
-    # query_graph = create_document_graph(graphs, query_id, fname, args.use_gcc)
+    query_graph = create_document_graph(graphs, query_id, fname, args.use_gcc)
 
     # export_doc_graph(query_id, query_graph)
-
-    query_graph = result[passage_nr]
 
     # recalculate node weights using TextRank
     if args.textrank:
@@ -230,8 +228,6 @@ for topic_num, topic in tqdm(topics):  # tqdm(topics.items()):
     # Create new ranking.
     ranking = {}
     addition_types = {}
-
-# conn.close()
 
     # Loop over candidate documents and calculate similarity score.
     qid_docids = utils.read_docids_from_file(
